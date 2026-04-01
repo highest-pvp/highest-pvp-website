@@ -9,12 +9,13 @@
     <style>
         :root { --red: #ff0000; --glow: rgba(255, 0, 0, 0.6); }
         
+        /* --- NEW BACKGROUND CONFIG --- */
         body { 
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
                         url('https://i.postimg.cc/prrRzQwQ/back.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Background yo93ed thabet */
             color: #fff; 
             font-family: 'Rajdhani', sans-serif; 
             overflow-x: hidden;
@@ -42,7 +43,7 @@
         .btn-highest { 
             background: rgba(0, 0, 0, 0.6); border: 2px solid var(--red); color: #fff; 
             padding: 12px 35px; font-weight: 900; text-transform: uppercase; 
-            cursor: pointer; transition: 0.4s; backdrop-filter: blur(5px); font-family: 'Orbitron';
+            cursor: pointer; transition: 0.4s; backdrop-filter: blur(5px);
         }
         .btn-highest:hover { background: var(--red); color: #000; box-shadow: 0 0 30px var(--red); }
 
@@ -51,18 +52,10 @@
         .store-item:hover { border-color: var(--red); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255,0,0,0.2); }
         .store-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 2px; }
 
-        /* --- STAFF FORM MODIFIED --- */
+        /* --- FORMS --- */
         .form-container { background: rgba(5, 5, 5, 0.9); border: 1px solid rgba(255, 0, 0, 0.3); padding: 40px; max-width: 850px; margin: 0 auto; backdrop-filter: blur(15px); }
-        
-        /* Font ktiba ta3 staff */
-        .staff-label { color: var(--red); font-family: 'Orbitron'; font-size: 11px; text-transform: uppercase; margin-bottom: 8px; display: block; font-weight: 700; letter-spacing: 1px; }
-        
-        input, textarea, select { 
-            background: rgba(0,0,0,0.85) !important; border: 1px solid #333 !important; 
-            color: #fff !important; width: 100%; padding: 14px; margin-bottom: 20px; 
-            outline: none; font-family: 'Rajdhani'; font-size: 16px;
-        }
-        input:focus, textarea:focus { border-color: var(--red) !important; box-shadow: 0 0 10px rgba(255,0,0,0.2); }
+        input, textarea, select { background: rgba(0,0,0,0.7) !important; border: 1px solid #333 !important; color: #fff !important; width: 100%; padding: 14px; margin-bottom: 20px; outline: none; }
+        input:focus { border-color: var(--red) !important; }
 
         /* --- TABS --- */
         .tab-view { display: none; padding: 60px 20px; }
@@ -132,33 +125,33 @@
 
         <section id="staff" class="tab-view">
             <div class="form-container">
-                <h2 class="font-gaming text-3xl text-white mb-8 italic uppercase border-l-4 border-red-600 pl-4">Staff Recruitment</h2>
+                <h2 class="font-gaming text-3xl text-white mb-8 italic uppercase">Staff Recruitment</h2>
                 <form id="applyForm">
-                    <label class="staff-label">Nom et Prénom</label>
-                    <input type="text" id="fn" placeholder="Votre nom" required>
+                    <label class="font-gaming text-red-600 text-[10px] font-bold uppercase mb-2 block">Nom et Prénom</label>
+                    <input type="text" id="fn" required>
                     
                     <div class="grid grid-cols-2 gap-6">
                         <div>
-                            <label class="staff-label">Age</label>
-                            <input type="number" id="age" placeholder="17" required>
+                            <label class="font-gaming text-red-600 text-[10px] font-bold uppercase mb-2 block">Age</label>
+                            <input type="number" id="age" required>
                         </div>
                         <div>
-                            <label class="staff-label">Discord Tag</label>
+                            <label class="font-gaming text-red-600 text-[10px] font-bold uppercase mb-2 block">Discord Tag</label>
                             <input type="text" id="dc" placeholder="User#0000" required>
                         </div>
                     </div>
 
-                    <label class="staff-label">Niveau d'Expérience</label>
-                    <select id="exp">
-                        <option value="Aucune">Aucune Expérience</option>
-                        <option value="Intermédiaire">Intermédiaire (Ancien Staff)</option>
-                        <option value="Expert">Expert (Admin/Manager)</option>
+                    <label class="font-gaming text-red-600 text-[10px] font-bold uppercase mb-2 block">Expérience</label>
+                    <select id="exp" class="font-gaming text-xs">
+                        <option value="Aucune">Aucune</option>
+                        <option value="Moyenne">Moyenne</option>
+                        <option value="Expert">Expert (Ancien Staff)</option>
                     </select>
 
-                    <label class="staff-label">Pourquoi vous choisir ? (Motivations)</label>
-                    <textarea id="why" rows="4" placeholder="Détaillez vos raisons..." required></textarea>
-
-                    <button type="submit" id="submitBtn" class="btn-highest w-full mt-4 py-4 font-black">SEND APPLICATION</button>
+                    <label class="font-gaming text-red-600 text-[10px] font-bold uppercase mb-2 block">Pourquoi vous choisir ?</label>
+                    <textarea id="why" rows="4" required></textarea>
+                    
+                    <button type="submit" id="submitBtn" class="btn-highest w-full mt-6 py-4 font-black">SUBMIT APPLICATION</button>
                 </form>
             </div>
         </section>
