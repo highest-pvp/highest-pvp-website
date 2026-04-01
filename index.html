@@ -3,62 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGHEST PVP</title>
+    <title>HIGHEST PVP | OFFICIAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        body { background: #050505; color: white; font-family: sans-serif; }
-        .nav-link { cursor: pointer; padding: 10px; font-family: 'Orbitron'; font-size: 12px; }
-        .active-link { color: #ff0000; text-shadow: 0 0 10px red; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .rgb-card { border: 1px solid #ff0000; background: rgba(20,20,20,0.8); box-shadow: 0 0 10px rgba(255,0,0,0.3); }
-        .btn-red { background: #ff0000; color: black; font-weight: bold; padding: 10px; display: block; text-align: center; border-radius: 4px; }
+        body { background: #050505; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; }
+        .nav-link { cursor: pointer; font-family: 'Orbitron'; font-size: 13px; transition: 0.3s; }
+        .nav-link:hover, .active-link { color: #ff0000; text-shadow: 0 0 10px red; }
+        .tab-content { display: none; padding: 40px 20px; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .rgb-card { border: 1px solid #ff0000; background: rgba(15,15,15,0.9); box-shadow: 0 0 15px rgba(255,0,0,0.2); border-radius: 8px; }
+        .btn-red { background: #ff0000; color: black; font-weight: 900; padding: 12px; display: block; text-align: center; border-radius: 4px; font-family: 'Orbitron'; transition: 0.3s; cursor: pointer; border: none; width: 100%; }
+        .btn-red:hover { background: white; box-shadow: 0 0 20px #ff0000; }
+        input, textarea { background: #000; border: 1px solid #333; color: white; padding: 12px; border-radius: 4px; outline: none; }
+        input:focus, textarea:focus { border-color: #ff0000; }
     </style>
 </head>
 <body>
 
-    <nav class="flex justify-between items-center px-10 py-5 border-b border-zinc-800 sticky top-0 bg-black z-50">
-        <div class="font-bold text-xl uppercase italic">HIGHEST <span class="text-red-600">PVP</span></div>
-        <div class="flex gap-5">
-            <div onclick="showTab('home')" id="l-home" class="nav-link active-link">Home</div>
-            <div onclick="showTab('store')" id="l-store" class="nav-link">Store</div>
-            <div onclick="showTab('staff')" id="l-staff" class="nav-link">Staff</div>
+    <nav class="flex justify-between items-center px-10 py-6 border-b border-zinc-900 sticky top-0 bg-black/95 z-50">
+        <div class="font-black text-xl italic uppercase font-gaming" style="font-family: 'Orbitron'">HIGHEST <span class="text-red-600">PVP</span></div>
+        <div class="flex gap-8">
+            <div onclick="showTab('home')" id="l-home" class="nav-link active-link">HOME</div>
+            <div onclick="showTab('store')" id="l-store" class="nav-link">STORE</div>
+            <div onclick="showTab('staff')" id="l-staff" class="nav-link">STAFF</div>
         </div>
     </nav>
 
-    <div id="home" class="tab-content active text-center py-20">
-        <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-10">
-        <h1 style="font-family: 'Orbitron'" class="text-6xl mb-10">HIGHEST <span class="text-red-600">PVP</span></h1>
-        <div class="flex justify-center gap-5">
-            <button onclick="showTab('store')" class="btn-red px-10">STORE</button>
-            <button onclick="showTab('staff')" class="border border-white px-10 py-2">STAFF</button>
+    <div id="home" class="tab-content active text-center py-24">
+        <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-10 drop-shadow-[0_0_30px_rgba(255,0,0,0.5)]">
+        <h1 style="font-family: 'Orbitron'" class="text-6xl md:text-8xl font-black mb-6 italic">HIGHEST <span class="text-red-600">PVP</span></h1>
+        <p class="text-zinc-500 tracking-[0.5em] mb-12 uppercase text-sm">Tunisia's Most Elite Experience</p>
+        <div class="flex justify-center gap-6">
+            <button onclick="showTab('store')" class="btn-red px-12">EXPLORE STORE</button>
+            <button onclick="showTab('staff')" class="border border-white px-12 py-3 font-bold hover:bg-white hover:text-black transition">APPLY NOW</button>
         </div>
     </div>
 
-    <div id="store" class="tab-content px-10 py-10">
-        <h2 class="text-3xl text-center mb-10 uppercase italic">Elite Store</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="rgb-card p-4"><img src="image_c596b0.png" class="w-full h-40 object-cover mb-4"><b>Pack 1</b><br><span class="text-red-600">50 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_c5a9b7.png" class="w-full h-40 object-cover mb-4"><b>Pack 2</b><br><span class="text-red-600">50 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_4bcadd.jpg" class="w-full h-40 object-cover mb-4"><b>VIP GUNS</b><br><span class="text-red-600">60 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_4bcb05.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 1</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_4bcb20.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 2</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_4bcb7a.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 3</b><br><span class="text-red-600">30 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_4bcb97.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 4</b><br><span class="text-red-600">30 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_4bcb9d.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 5</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
-            <div class="rgb-card p-4"><img src="image_4bcbb6.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 6</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+    <div id="store" class="tab-content max-w-7xl mx-auto">
+        <h2 class="text-4xl text-center mb-16 uppercase italic font-black" style="font-family: 'Orbitron'">Elite <span class="text-red-600">Market</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="rgb-card p-5"><img src="image_c596b0.png" class="w-full h-48 object-cover rounded mb-4"><b>SPECIAL PACK 1</b><br><span class="text-red-600 font-bold">50 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            <div class="rgb-card p-5"><img src="image_c5a9b7.png" class="w-full h-48 object-cover rounded mb-4"><b>SPECIAL PACK 2</b><br><span class="text-red-600 font-bold">50 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            <div class="rgb-card p-5"><img src="image_4bcadd.jpg" class="w-full h-48 object-cover rounded mb-4"><b>VIP GUNS</b><br><span class="text-red-600 font-bold">60 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            
+            <div class="rgb-card p-5"><img src="image_4bcb05.jpg" class="w-full h-48 object-cover rounded mb-4"><b>CAR 1</b><br><span class="text-red-600 font-bold">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            <div class="rgb-card p-5"><img src="image_4bcb20.jpg" class="w-full h-48 object-cover rounded mb-4"><b>CAR 2</b><br><span class="text-red-600 font-bold">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            <div class="rgb-card p-5"><img src="image_4bcb7a.jpg" class="w-full h-48 object-cover rounded mb-4"><b>CAR 3</b><br><span class="text-red-600 font-bold">30 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            <div class="rgb-card p-5"><img src="image_4bcb97.jpg" class="w-full h-48 object-cover rounded mb-4"><b>CAR 4</b><br><span class="text-red-600 font-bold">30 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            <div class="rgb-card p-5"><img src="image_4bcb9d.jpg" class="w-full h-48 object-cover rounded mb-4"><b>CAR 5</b><br><span class="text-red-600 font-bold">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
+            <div class="rgb-card p-5"><img src="image_4bcbb6.jpg" class="w-full h-48 object-cover rounded mb-4"><b>CAR 6</b><br><span class="text-red-600 font-bold">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-5 text-xs">PURCHASE</a></div>
         </div>
     </div>
 
-    <div id="staff" class="tab-content py-20 px-10">
-        <div class="max-w-xl mx-auto rgb-card p-10">
-            <h2 class="text-2xl mb-5 text-red-600">Staff Application</h2>
-            <form id="sForm" class="flex flex-col gap-4">
-                <input type="text" id="fn" placeholder="Name" class="bg-black border border-zinc-800 p-3" required>
-                <input type="text" id="dc" placeholder="Discord Tag" class="bg-black border border-zinc-800 p-3" required>
-                <textarea id="msg" placeholder="Why you?" class="bg-black border border-zinc-800 p-3" required></textarea>
-                <button type="submit" id="sBtn" class="btn-red">SUBMIT</button>
+    <div id="staff" class="tab-content">
+        <div class="max-w-2xl mx-auto rgb-card p-10">
+            <h2 class="text-3xl mb-8 text-red-600 font-black uppercase italic text-center" style="font-family: 'Orbitron'">Staff Application</h2>
+            <form id="sForm" class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs uppercase tracking-widest text-zinc-500">Full Name</label>
+                    <input type="text" id="fn" placeholder="Your Name" required>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs uppercase tracking-widest text-zinc-500">Discord Tag</label>
+                    <input type="text" id="dc" placeholder="Example#0001" required>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs uppercase tracking-widest text-zinc-500">Experience / Why Highest?</label>
+                    <textarea id="msg" rows="5" placeholder="Tell us about yourself..." required></textarea>
+                </div>
+                <button type="submit" id="sBtn" class="btn-red text-lg">SUBMIT APPLICATION</button>
             </form>
         </div>
     </div>
@@ -76,18 +91,24 @@
             e.preventDefault();
             const btn = document.getElementById('sBtn');
             btn.innerText = "SENDING...";
-            // WEBHOOK
+            btn.disabled = true;
+
             const url = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
+            
             try {
                 const fd = new FormData();
                 fd.append('discord', document.getElementById('dc').value);
-                fd.append('message', "Name: " + document.getElementById('fn').value + " | Msg: " + document.getElementById('msg').value);
+                fd.append('message', "Name: " + document.getElementById('fn').value + " | Why: " + document.getElementById('msg').value);
+                
                 await fetch(url, { method: 'POST', body: fd, mode: 'no-cors' });
+                
+                alert("Application Sent! We will contact you soon.");
+                btn.innerText = "SENT SUCCESSFULLY";
+                document.getElementById('sForm').reset();
+            } catch (err) {
                 alert("Sent!");
-                btn.innerText = "SENT!";
-            } catch {
-                alert("Sent!");
-                btn.innerText = "SUBMIT";
+                btn.innerText = "SUBMIT APPLICATION";
+                btn.disabled = false;
             }
         });
     </script>
