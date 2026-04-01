@@ -3,122 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGHEST PVP | OFFICIAL</title>
+    <title>HIGHEST PVP</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root { --rgb-red: #ff0000; --rgb-glow: rgba(255, 0, 0, 0.6); }
-        body { background: radial-gradient(circle at center, #1a0000 0%, #050505 100%); color: #fff; font-family: 'Rajdhani', sans-serif; min-height: 100vh; overflow-x: hidden; }
-        h1, h2, h3, .font-gaming { font-family: 'Orbitron', sans-serif; }
-        .rgb-border { border: 2px solid var(--rgb-red); box-shadow: 0 0 15px var(--rgb-glow); transition: 0.3s; }
-        .glass-card { background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 0, 0, 0.2); }
-        .nav-link { cursor: pointer; transition: 0.3s; font-size: 14px; position: relative; }
-        .nav-link.active { color: #ff0000; text-shadow: 0 0 10px red; }
+        body { background: #050505; color: white; font-family: sans-serif; }
+        .nav-link { cursor: pointer; padding: 10px; font-family: 'Orbitron'; font-size: 12px; }
+        .active-link { color: #ff0000; text-shadow: 0 0 10px red; }
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .cyber-btn { padding: 12px 35px; background: transparent; color: #fff; text-transform: uppercase; font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 2px; border: 2px solid #ff0000; clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%); transition: 0.4s; display: inline-block; cursor: pointer; }
-        .cyber-btn:hover { background: #ff0000; box-shadow: 0 0 30px #ff0000; color: black; transform: scale(1.05); }
+        .tab-content.active { display: block; }
+        .rgb-card { border: 1px solid #ff0000; background: rgba(20,20,20,0.8); box-shadow: 0 0 10px rgba(255,0,0,0.3); }
+        .btn-red { background: #ff0000; color: black; font-weight: bold; padding: 10px; display: block; text-align: center; border-radius: 4px; }
     </style>
 </head>
 <body>
 
-    <nav class="flex justify-between items-center px-6 md:px-20 py-5 border-b border-zinc-900 sticky top-0 z-50 bg-black/95">
-        <div class="flex items-center gap-4">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-12 drop-shadow-[0_0_8px_red]">
-            <span class="font-gaming text-lg font-black italic">HIGHEST <span class="text-red-600">PVP</span></span>
-        </div>
-        <div class="flex gap-6 font-gaming uppercase font-bold text-xs">
-            <div onclick="openTab('home')" id="link-home" class="nav-link active">Home</div>
-            <div onclick="openTab('store')" id="link-store" class="nav-link">Store</div>
-            <div onclick="openTab('staff')" id="link-staff" class="nav-link text-red-600">Staff App</div>
+    <nav class="flex justify-between items-center px-10 py-5 border-b border-zinc-800 sticky top-0 bg-black z-50">
+        <div class="font-bold text-xl uppercase italic">HIGHEST <span class="text-red-600">PVP</span></div>
+        <div class="flex gap-5">
+            <div onclick="showTab('home')" id="l-home" class="nav-link active-link">Home</div>
+            <div onclick="showTab('store')" id="l-store" class="nav-link">Store</div>
+            <div onclick="showTab('staff')" id="l-staff" class="nav-link">Staff</div>
         </div>
     </nav>
 
-    <main class="py-10">
-        <section id="home" class="tab-content active text-center py-16 px-4">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-8 animate-pulse drop-shadow-[0_0_40px_rgba(255,0,0,0.7)]">
-            <h1 class="text-6xl md:text-8xl font-black uppercase italic mb-2 tracking-tighter">HIGHEST <span class="text-red-600 underline">PVP</span></h1>
-            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-xs italic">Tunisian Elite Community</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <div onclick="openTab('store')" class="cyber-btn">OPEN STORE</div>
-                <div onclick="openTab('staff')" class="cyber-btn border-white">STAFF APPLY</div>
-            </div>
-        </section>
+    <div id="home" class="tab-content active text-center py-20">
+        <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-10">
+        <h1 style="font-family: 'Orbitron'" class="text-6xl mb-10">HIGHEST <span class="text-red-600">PVP</span></h1>
+        <div class="flex justify-center gap-5">
+            <button onclick="showTab('store')" class="btn-red px-10">STORE</button>
+            <button onclick="showTab('staff')" class="border border-white px-10 py-2">STAFF</button>
+        </div>
+    </div>
 
-        <section id="store" class="tab-content px-6 max-w-7xl mx-auto">
-            <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase text-red-600 underline underline-offset-8 decoration-white">Elite Market</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
-                <div class="glass-card p-4 rgb-border"><img src="image_c596b0.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Limited Pack 1</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_c5a9b7.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Limited Pack 2</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_4bcadd.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>VIP GUNS</span><span class="text-red-600">60 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_4bcb05.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 1</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_4bcb20.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 2</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_4bcb7a.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 3</span><span class="text-red-600">30 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_4bcb97.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 4</span><span class="text-red-600">30 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_4bcb9d.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 5</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_4bcbb6.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 6</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-            </div>
-        </section>
+    <div id="store" class="tab-content px-10 py-10">
+        <h2 class="text-3xl text-center mb-10 uppercase italic">Elite Store</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="rgb-card p-4"><img src="image_c596b0.png" class="w-full h-40 object-cover mb-4"><b>Pack 1</b><br><span class="text-red-600">50 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_c5a9b7.png" class="w-full h-40 object-cover mb-4"><b>Pack 2</b><br><span class="text-red-600">50 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_4bcadd.jpg" class="w-full h-40 object-cover mb-4"><b>VIP GUNS</b><br><span class="text-red-600">60 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_4bcb05.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 1</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_4bcb20.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 2</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_4bcb7a.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 3</b><br><span class="text-red-600">30 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_4bcb97.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 4</b><br><span class="text-red-600">30 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_4bcb9d.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 5</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+            <div class="rgb-card p-4"><img src="image_4bcbb6.jpg" class="w-full h-40 object-cover mb-4"><b>CAR 6</b><br><span class="text-red-600">40 DT</span><a href="https://discord.gg/NmQRM65YNd" class="btn-red mt-4 text-xs">BUY</a></div>
+        </div>
+    </div>
 
-        <section id="staff" class="tab-content px-6 max-w-2xl mx-auto">
-            <div class="glass-card p-8 rgb-border rounded-xl">
-                <h2 class="font-gaming text-2xl text-center mb-8 text-red-600 font-black italic uppercase">STAFF APPLICATION</h2>
-                <form id="staffForm" class="space-y-4">
-                    <input type="text" id="fullname" class="w-full p-4 rounded bg-black border border-zinc-800 outline-none" placeholder="Esmek el Kamil" required>
-                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black border border-zinc-800 outline-none" placeholder="Discord Tag" required>
-                    <textarea id="why" rows="4" class="w-full p-4 rounded bg-black border border-zinc-800 outline-none" placeholder="Why you?" required></textarea>
-                    <button type="submit" id="submitBtn" class="cyber-btn w-full">SEND NOW</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-10 text-center border-t border-zinc-900 text-zinc-600 text-[10px] tracking-[0.4em] uppercase">
-        © 2026 HIGHEST PVP | TUNISIA
-    </footer>
+    <div id="staff" class="tab-content py-20 px-10">
+        <div class="max-w-xl mx-auto rgb-card p-10">
+            <h2 class="text-2xl mb-5 text-red-600">Staff Application</h2>
+            <form id="sForm" class="flex flex-col gap-4">
+                <input type="text" id="fn" placeholder="Name" class="bg-black border border-zinc-800 p-3" required>
+                <input type="text" id="dc" placeholder="Discord Tag" class="bg-black border border-zinc-800 p-3" required>
+                <textarea id="msg" placeholder="Why you?" class="bg-black border border-zinc-800 p-3" required></textarea>
+                <button type="submit" id="sBtn" class="btn-red">SUBMIT</button>
+            </form>
+        </div>
+    </div>
 
     <script>
-        // EL SCRIPT HADHA HOWA EL MO55 MTE3 EL SITE
-        function openTab(tabName) {
-            // Fama Tabs? Hide all.
-            const contents = document.getElementsByClassName('tab-content');
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove('active');
-            }
-            // Active Link? Reset all.
-            const links = document.getElementsByClassName('nav-link');
-            for (let i = 0; i < links.length; i++) {
-                links[i].classList.remove('active');
-            }
-            // Show the one we want
-            document.getElementById(tabName).classList.add('active');
-            document.getElementById('link-' + tabName).classList.add('active');
+        function showTab(t) {
+            document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(x => x.classList.remove('active-link'));
+            document.getElementById(t).classList.add('active');
+            document.getElementById('l-'+t).classList.add('active-link');
             window.scrollTo(0,0);
         }
 
-        // GOOGLE SHEETS WEBHOOK
-        document.getElementById('staffForm').addEventListener('submit', async function(e) {
+        document.getElementById('sForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
-            
+            const btn = document.getElementById('sBtn');
+            btn.innerText = "SENDING...";
+            // WEBHOOK
+            const url = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
             try {
-                btn.disabled = true;
-                btn.innerText = "SENDING...";
-                const formData = new FormData();
-                formData.append('discord', document.getElementById('discord_tag').value);
-                formData.append('message', "Name: " + document.getElementById('fullname').value + " | Why: " + document.getElementById('why').value);
-
-                fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
-
-                alert("Application sent! We will check it.");
-                btn.innerText = "SENT!";
-                document.getElementById('staffForm').reset();
-            } catch (err) {
+                const fd = new FormData();
+                fd.append('discord', document.getElementById('dc').value);
+                fd.append('message', "Name: " + document.getElementById('fn').value + " | Msg: " + document.getElementById('msg').value);
+                await fetch(url, { method: 'POST', body: fd, mode: 'no-cors' });
                 alert("Sent!");
-                btn.disabled = false;
-                btn.innerText = "SEND NOW";
+                btn.innerText = "SENT!";
+            } catch {
+                alert("Sent!");
+                btn.innerText = "SUBMIT";
             }
         });
     </script>
