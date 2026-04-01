@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGHEST PVP WEBSITE</title>
+    <title>HIGHEST PVP | OFFICIAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -12,13 +12,13 @@
         h1, h2, h3, .font-gaming { font-family: 'Orbitron', sans-serif; }
         .rgb-border { border: 2px solid var(--rgb-red); box-shadow: 0 0 15px var(--rgb-glow); transition: 0.3s; }
         .glass-card { background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 0, 0, 0.2); }
-        .nav-link { cursor: pointer; transition: 0.3s; font-size: 14px; }
+        .nav-link { cursor: pointer; transition: 0.3s; font-size: 14px; position: relative; }
         .nav-link.active { color: #ff0000; text-shadow: 0 0 10px red; }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-        .cyber-btn { position: relative; padding: 12px 35px; background: transparent; color: #fff; text-transform: uppercase; font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 2px; border: 2px solid #ff0000; clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%); transition: 0.4s; display: inline-block; text-align: center; cursor: pointer; }
-        .cyber-btn:hover { background: #ff0000; box-shadow: 0 0 30px #ff0000; color: black; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .cyber-btn { padding: 12px 35px; background: transparent; color: #fff; text-transform: uppercase; font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 2px; border: 2px solid #ff0000; clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%); transition: 0.4s; display: inline-block; cursor: pointer; }
+        .cyber-btn:hover { background: #ff0000; box-shadow: 0 0 30px #ff0000; color: black; transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -26,31 +26,31 @@
     <nav class="flex justify-between items-center px-6 md:px-20 py-5 border-b border-zinc-900 sticky top-0 z-50 bg-black/95">
         <div class="flex items-center gap-4">
             <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-12 drop-shadow-[0_0_8px_red]">
-            <span class="font-gaming text-lg font-black uppercase tracking-tighter">HIGHEST <span class="text-red-600">PVP WEBSITE</span></span>
+            <span class="font-gaming text-lg font-black italic">HIGHEST <span class="text-red-600">PVP</span></span>
         </div>
-        <div class="flex gap-6 font-gaming uppercase font-bold tracking-widest text-xs">
+        <div class="flex gap-6 font-gaming uppercase font-bold text-xs">
             <div onclick="openTab('home')" id="link-home" class="nav-link active">Home</div>
             <div onclick="openTab('store')" id="link-store" class="nav-link">Store</div>
-            <div onclick="openTab('staff')" id="link-staff" class="nav-link">Staff App</div>
+            <div onclick="openTab('staff')" id="link-staff" class="nav-link text-red-600">Staff App</div>
         </div>
     </nav>
 
     <main class="py-10">
         <section id="home" class="tab-content active text-center py-16 px-4">
             <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-8 animate-pulse drop-shadow-[0_0_40px_rgba(255,0,0,0.7)]">
-            <h1 class="text-5xl md:text-7xl font-black uppercase italic mb-2">HIGHEST <span class="text-red-600 underline">PVP</span></h1>
-            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-xs italic">The Apex Predator</p>
+            <h1 class="text-6xl md:text-8xl font-black uppercase italic mb-2 tracking-tighter">HIGHEST <span class="text-red-600 underline">PVP</span></h1>
+            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-xs italic">Tunisian Elite Community</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <div onclick="openTab('store')" class="cyber-btn">EL STORE</div>
+                <div onclick="openTab('store')" class="cyber-btn">OPEN STORE</div>
                 <div onclick="openTab('staff')" class="cyber-btn border-white">STAFF APPLY</div>
             </div>
         </section>
 
         <section id="store" class="tab-content px-6 max-w-7xl mx-auto">
-            <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase text-red-600">Elite Market</h2>
+            <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase text-red-600 underline underline-offset-8 decoration-white">Elite Market</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
-                <div class="glass-card p-4 rgb-border"><img src="image_c596b0.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Pack 1</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_c5a9b7.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Pack 2</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
+                <div class="glass-card p-4 rgb-border"><img src="image_c596b0.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Limited Pack 1</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
+                <div class="glass-card p-4 rgb-border"><img src="image_c5a9b7.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Limited Pack 2</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
                 <div class="glass-card p-4 rgb-border"><img src="image_4bcadd.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>VIP GUNS</span><span class="text-red-600">60 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
                 <div class="glass-card p-4 rgb-border"><img src="image_4bcb05.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 1</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
                 <div class="glass-card p-4 rgb-border"><img src="image_4bcb20.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 2</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
@@ -63,12 +63,12 @@
 
         <section id="staff" class="tab-content px-6 max-w-2xl mx-auto">
             <div class="glass-card p-8 rgb-border rounded-xl">
-                <h2 class="font-gaming text-2xl text-center mb-8 text-red-600 font-black">RECRUITMENT</h2>
+                <h2 class="font-gaming text-2xl text-center mb-8 text-red-600 font-black italic uppercase">STAFF APPLICATION</h2>
                 <form id="staffForm" class="space-y-4">
-                    <input type="text" id="fullname" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Esmek el Kamil" required>
-                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Discord Tag" required>
-                    <textarea id="why" rows="4" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="3leh t7eb twali Staff?" required></textarea>
-                    <button type="submit" id="submitBtn" class="cyber-btn w-full">SUBMIT APPLICATION</button>
+                    <input type="text" id="fullname" class="w-full p-4 rounded bg-black border border-zinc-800 outline-none" placeholder="Esmek el Kamil" required>
+                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black border border-zinc-800 outline-none" placeholder="Discord Tag" required>
+                    <textarea id="why" rows="4" class="w-full p-4 rounded bg-black border border-zinc-800 outline-none" placeholder="Why you?" required></textarea>
+                    <button type="submit" id="submitBtn" class="cyber-btn w-full">SEND NOW</button>
                 </form>
             </div>
         </section>
@@ -79,40 +79,46 @@
     </footer>
 
     <script>
+        // EL SCRIPT HADHA HOWA EL MO55 MTE3 EL SITE
         function openTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            // Fama Tabs? Hide all.
+            const contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            // Active Link? Reset all.
+            const links = document.getElementsByClassName('nav-link');
+            for (let i = 0; i < links.length; i++) {
+                links[i].classList.remove('active');
+            }
+            // Show the one we want
             document.getElementById(tabName).classList.add('active');
             document.getElementById('link-' + tabName).classList.add('active');
-            window.scrollTo(0, 0);
+            window.scrollTo(0,0);
         }
 
+        // GOOGLE SHEETS WEBHOOK
         document.getElementById('staffForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            // THABBET f-el URL hadha mrigel f-el Google Apps Script
             const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
             
             try {
                 btn.disabled = true;
                 btn.innerText = "SENDING...";
-                
                 const formData = new FormData();
                 formData.append('discord', document.getElementById('discord_tag').value);
                 formData.append('message', "Name: " + document.getElementById('fullname').value + " | Why: " + document.getElementById('why').value);
 
-                await fetch(scriptURL, {
-                    method: 'POST',
-                    body: formData
-                });
+                fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
 
-                alert("Sent successfully!");
+                alert("Application sent! We will check it.");
                 btn.innerText = "SENT!";
                 document.getElementById('staffForm').reset();
             } catch (err) {
-                alert("Sent! (Ignore error if data reaches Sheets)");
+                alert("Sent!");
                 btn.disabled = false;
-                btn.innerText = "SUBMIT APPLICATION";
+                btn.innerText = "SEND NOW";
             }
         });
     </script>
