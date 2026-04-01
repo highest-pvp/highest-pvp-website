@@ -50,11 +50,11 @@
             <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase underline decoration-red-600 underline-offset-8">Elite Market</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                <div class="glass-card p-4 rgb-border">
-                    <img src="image_c596b0.png" class="w-full h-auto rounded-lg">
+                <div class="glass-card p-2 rgb-border">
+                    <img src="image_c596b0.png" class="w-full rounded-lg">
                 </div>
-                <div class="glass-card p-4 rgb-border">
-                    <img src="image_c5a9b7.png" class="w-full h-auto rounded-lg">
+                <div class="glass-card p-2 rgb-border">
+                    <img src="image_c5a9b7.png" class="w-full rounded-lg">
                 </div>
             </div>
 
@@ -115,7 +115,6 @@
             document.getElementById('link-' + tabName).classList.add('active');
         }
 
-        // --- PIXO SYSTEM: GOOGLE SCRIPT + IP TRACKER ---
         document.getElementById('staffForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
@@ -123,31 +122,26 @@
 
             try {
                 btn.disabled = true;
-                btn.innerText = "SECURITY CHECK...";
-
-                // 1. Get User IP
+                btn.innerText = "Checking...";
                 const ipRes = await fetch('https://api.ipify.org?format=json');
                 const ipData = await ipRes.json();
-                const userIP = ipData.ip;
-
-                // 2. Collect Data
+                
                 const formData = {
                     discord: document.getElementById('discord_tag').value,
-                    message: "Name: " + document.getElementById('fullname').value + " | Age: " + document.getElementById('age').value + " | Reason: " + document.getElementById('why').value
+                    message: "Nom: " + document.getElementById('fullname').value + " | Age: " + document.getElementById('age').value + " | Why: " + document.getElementById('why').value
                 };
 
-                // 3. Send to Google Script
-                await fetch(scriptURL + "?ip=" + userIP, {
+                await fetch(scriptURL + "?ip=" + ipData.ip, {
                     method: 'POST',
                     mode: 'no-cors',
                     body: JSON.stringify(formData)
                 });
 
-                alert("Mregla! Application sent successfully.");
+                alert("Sent successfully!");
                 btn.innerText = "SENT!";
                 document.getElementById('staffForm').reset();
-            } catch (error) {
-                alert("Error sending! Try again.");
+            } catch (err) {
+                alert("Error! Try again.");
                 btn.disabled = false;
                 btn.innerText = "Ab3eth el Application";
             }
