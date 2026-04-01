@@ -93,33 +93,42 @@
 
 <script>
 async function sendApp() {
-    // El Link jdid mte3 el Google Script mte3ek
+    // El Link mte3 el Google Script el jdid mte3ek
     const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
     const btn = document.getElementById('submitBtn');
+    const discord = document.getElementById('discord_tag').value;
+    const message = document.getElementById('backstory_input').value;
+
+    if (!discord || !message) {
+        alert("Régel oumourek! A3mmer el ma3loumat el kol.");
+        return;
+    }
 
     try {
         btn.disabled = true;
-        btn.innerText = "Security Check...";
+        btn.innerText = "Checking Security...";
 
         // 1. Get User IP (Fazet el IP Tracker)
         const ipRes = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipRes.json();
         const userIP = ipData.ip;
 
-        // 2. Prepare Data (Thabbet el IDs mte3ek kima m-smiyin f-el HTML)
+        // 2. Prepare Data
         const formData = {
-            discord: document.getElementById('discord_tag').value,
-            message: document.getElementById('backstory_input').value
+            discord: discord,
+            message: message
         };
 
         // 3. Send to Google Proxy (Fazet el Anti-Spam)
+        btn.innerText = "Sending to Pixo...";
+        
         await fetch(scriptURL + "?ip=" + userIP, {
             method: 'POST',
             mode: 'no-cors', 
             body: JSON.stringify(formData)
         });
 
-        alert("Application sent successfully! Pixo System secured your IP.");
+        alert("Mregla! Application sent successfully.");
         btn.innerText = "SENT!";
         
         // Clear inputs
@@ -128,9 +137,9 @@ async function sendApp() {
 
     } catch (error) {
         console.error(error);
-        alert("Error! Please try again.");
+        alert("Famma mochkla sghira, 3awed jarreb!");
         btn.disabled = false;
-        btn.innerText = "SUBMIT";
+        btn.innerText = "SEND APPLICATION";
     }
 }
 </script>
