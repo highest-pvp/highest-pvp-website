@@ -10,16 +10,37 @@
         :root { --rgb-red: #ff0000; --rgb-glow: rgba(255, 0, 0, 0.6); }
         body { background: radial-gradient(circle at center, #1a0000 0%, #050505 100%); color: #fff; font-family: 'Rajdhani', sans-serif; min-height: 100vh; overflow-x: hidden; }
         h1, h2, h3, .font-gaming { font-family: 'Orbitron', sans-serif; }
+        
         .rgb-border { border: 2px solid var(--rgb-red); box-shadow: 0 0 15px var(--rgb-glow); transition: 0.3s; }
         .glass-card { background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 0, 0, 0.2); }
-        .nav-link { cursor: pointer; transition: 0.3s; font-size: 14px; }
+
+        .nav-link { cursor: pointer; transition: 0.3s; font-size: 14px; position: relative; }
         .nav-link.active { color: #ff0000; text-shadow: 0 0 10px red; }
+        
         .tab-content { display: none; animation: fadeIn 0.5s ease-in-out; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        .cyber-btn { position: relative; padding: 12px 35px; background: transparent; color: #fff; text-transform: uppercase; font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 2px; border: 2px solid #ff0000; clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%); transition: 0.4s; overflow: hidden; display: inline-block; text-align: center; cursor: pointer; }
+
+        .cyber-btn {
+            position: relative;
+            padding: 12px 35px;
+            background: transparent;
+            color: #fff;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            letter-spacing: 2px;
+            border: 2px solid #ff0000;
+            clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+            transition: 0.4s;
+            overflow: hidden;
+            display: inline-block;
+            text-align: center;
+        }
         .cyber-btn:hover { background: #ff0000; box-shadow: 0 0 30px #ff0000; transform: translateY(-3px); color: black; }
+
         input, textarea, select { background: rgba(0, 0, 0, 0.8) !important; border: 1px solid #333 !important; color: white !important; }
+        input:focus, textarea:focus { border-color: var(--rgb-red) !important; box-shadow: 0 0 15px var(--rgb-glow); outline: none; }
     </style>
 </head>
 <body>
@@ -37,12 +58,14 @@
     </nav>
 
     <main class="py-10">
+
         <section id="home" class="tab-content active text-center py-16">
             <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-72 mx-auto mb-8 animate-pulse drop-shadow-[0_0_40px_rgba(255,0,0,0.7)]">
             <h1 class="text-6xl md:text-8xl font-black uppercase italic mb-2 tracking-tighter">HIGHEST <span class="text-red-600 underline">PVP</span></h1>
             <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-sm italic">The Apex of Tunisian PVP</p>
             <div class="flex justify-center gap-4">
                 <button onclick="openTab('store')" class="cyber-btn">EL STORE</button>
+                <button onclick="openTab('staff')" class="cyber-btn" style="border-color: white;">JOIN TEAM</button>
             </div>
         </section>
 
@@ -51,9 +74,10 @@
             
             <div class="mb-20">
                 <div class="glass-card p-6 rgb-border relative group overflow-hidden rounded-xl">
-                    <img src="image_4bcadd.jpg" class="w-full h-auto rounded-lg group-hover:scale-[1.01] transition duration-700">
+                    <div class="absolute top-4 right-4 bg-red-600 text-white px-8 py-2 font-black italic z-10 skew-x-[-15deg]">30 DT</div>
+                    <img src="https://i.postimg.cc/vZ4sSTkL/gsns.png" class="w-full h-auto rounded-lg group-hover:scale-[1.01] transition duration-700">
                     <div class="mt-8 flex justify-between items-center px-4">
-                        <h4 class="text-3xl font-black italic uppercase text-red-600">VIP GUNS BUNDLE</h4>
+                        <h4 class="text-3xl font-black italic uppercase">VIP Guns Bundle</h4>
                         <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn">BUY NOW</a>
                     </div>
                 </div>
@@ -61,33 +85,33 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
                 <div class="glass-card p-4 rgb-border group">
-                    <img src="image_4bcb05.jpg" class="w-full h-52 object-cover rounded mb-4">
-                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>BMW M4</span><span class="text-red-600">40 DT</span></div>
+                    <img src="https://i.postimg.cc/rp9Q1Cjb/car1.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>BMW M4 Pro</span><span class="text-red-600">40 DT</span></div>
                     <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
                 </div>
                 <div class="glass-card p-4 rgb-border group">
-                    <img src="image_4bcb20.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <img src="https://i.postimg.cc/t4NMkjCB/car-2.png" class="w-full h-52 object-cover rounded mb-4">
                     <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>SUV Widebody</span><span class="text-red-600">40 DT</span></div>
                     <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
                 </div>
                 <div class="glass-card p-4 rgb-border group">
-                    <img src="image_4bcb7a.jpg" class="w-full h-52 object-cover rounded mb-4">
-                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Jeep Trackhawk</span><span class="text-red-600">30 DT</span></div>
+                    <img src="https://i.postimg.cc/nVmTTJ3Q/car3.png" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Trackhawk</span><span class="text-red-600">30 DT</span></div>
                     <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
                 </div>
                 <div class="glass-card p-4 rgb-border group">
-                    <img src="image_4bcb97.jpg" class="w-full h-52 object-cover rounded mb-4">
-                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>BMW X7 Widebody</span><span class="text-red-600">30 DT</span></div>
+                    <img src="https://i.postimg.cc/BQs5g18R/car4.png" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>BMW X7 Custom</span><span class="text-red-600">30 DT</span></div>
                     <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
                 </div>
                 <div class="glass-card p-4 rgb-border group">
-                    <img src="image_4bcb9d.jpg" class="w-full h-52 object-cover rounded mb-4">
-                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Custom SUV</span><span class="text-red-600">40 DT</span></div>
+                    <img src="https://i.postimg.cc/8z77B1b0/car-5.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Black Beast</span><span class="text-red-600">40 DT</span></div>
                     <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
                 </div>
                 <div class="glass-card p-4 rgb-border group">
-                    <img src="image_4bcbb6.jpg" class="w-full h-52 object-cover rounded mb-4">
-                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Custom Sedan</span><span class="text-red-600">40 DT</span></div>
+                    <img src="https://i.postimg.cc/2jTysqcK/car-6.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Mercedes Wide</span><span class="text-red-600">40 DT</span></div>
                     <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
                 </div>
             </div>
@@ -98,25 +122,26 @@
                 <h2 class="font-gaming text-3xl text-center mb-10 text-red-600 italic font-black uppercase">RECRUITMENT</h2>
                 <form id="staffForm" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" id="fullname" class="p-4 rounded bg-black" placeholder="Esmek el kamil" required>
-                        <input type="number" id="age" class="p-4 rounded bg-black" placeholder="3omrek" required>
+                        <input type="text" id="fullname" class="p-4 rounded" placeholder="Esmek el kamil" required>
+                        <input type="number" id="age" class="p-4 rounded" placeholder="3omrek" required>
                     </div>
-                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black" placeholder="Discord Tag" required>
-                    <textarea id="skills" rows="2" class="w-full p-4 rounded bg-black" placeholder="Chnowa el Skills mte3ek?"></textarea>
-                    <select id="experience" class="w-full p-4 rounded bg-black">
+                    <input type="text" id="discord_tag" class="w-full p-4 rounded" placeholder="Discord Tag" required>
+                    <textarea id="skills" rows="2" class="w-full p-4 rounded" placeholder="Chnowa el Skills mte3ek? (Edit, Dev, Logic...)"></textarea>
+                    <select id="experience" class="w-full p-4 rounded">
                         <option value="La walla marra">Khdemt Staff 9bal? (La)</option>
                         <option value="Ey, n3aref chwaya">Khdemt Staff 9bal? (Ey chwaya)</option>
                         <option value="Khdemt barcha">Khdemt Staff 9bal? (Expert)</option>
                     </select>
-                    <textarea id="why" rows="3" class="w-full p-4 rounded bg-black" placeholder="3leh t7eb twali Staff f Highest?" required></textarea>
+                    <textarea id="why" rows="3" class="w-full p-4 rounded" placeholder="3leh t7eb twali Staff f Highest?" required></textarea>
                     <button type="submit" class="cyber-btn w-full text-xl mt-4">Ab3eth el Application</button>
                 </form>
             </div>
         </section>
+
     </main>
 
     <footer class="py-10 text-center border-t border-zinc-900 text-zinc-600 uppercase tracking-[0.3em] text-[10px]">
-        &copy; 2026 HIGHEST PVP WEBSITE | TUNISIA
+        &copy; 2026 HIGHEST PVP WEBSITE | ALL CARS LOADED
     </footer>
 
     <script>
@@ -125,7 +150,31 @@
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
             document.getElementById('link-' + tabName).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
+
+        document.getElementById('staffForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const webhook = "https://discord.com/api/webhooks/1488578109530706153/vS_s9jU-eEI50Xl6rfcqrtjRPufrolrEV-oDRanABlQw9BUHmpb66QRbZtLT7j2V08Ul";
+            const data = {
+                username: "HIGHEST RECRUITMENT",
+                embeds: [{
+                    title: "🚀 NEW STAFF APPLICATION",
+                    color: 16711680,
+                    fields: [
+                        { name: "👤 Nom", value: document.getElementById('fullname').value, inline: true },
+                        { name: "🎂 Age", value: document.getElementById('age').value, inline: true },
+                        { name: "🆔 Discord", value: document.getElementById('discord_tag').value },
+                        { name: "🏆 Exp", value: document.getElementById('experience').value },
+                        { name: "🛠 Skills", value: document.getElementById('skills').value },
+                        { name: "❓ Why Us?", value: document.getElementById('why').value }
+                    ],
+                    timestamp: new Date()
+                }]
+            };
+            fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+            .then(() => { alert('Application Envoyée!'); document.getElementById('staffForm').reset(); });
+        });
     </script>
 </body>
 </html>
