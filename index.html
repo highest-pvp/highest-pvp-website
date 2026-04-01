@@ -31,7 +31,7 @@
         <div class="flex gap-6 font-gaming uppercase font-bold tracking-widest text-xs">
             <div onclick="openTab('home')" id="link-home" class="nav-link active">Home</div>
             <div onclick="openTab('store')" id="link-store" class="nav-link">Store</div>
-            <div onclick="openTab('staff')" id="link-staff" class="nav-link text-red-600 font-black">Staff App</div>
+            <div onclick="openTab('staff')" id="link-staff" class="nav-link">Staff App</div>
         </div>
     </nav>
 
@@ -39,7 +39,7 @@
         <section id="home" class="tab-content active text-center py-16 px-4">
             <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-8 animate-pulse drop-shadow-[0_0_40px_rgba(255,0,0,0.7)]">
             <h1 class="text-5xl md:text-7xl font-black uppercase italic mb-2">HIGHEST <span class="text-red-600 underline">PVP</span></h1>
-            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-xs italic">Apex Predator Community</p>
+            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-xs italic">The Apex Predator</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <div onclick="openTab('store')" class="cyber-btn">EL STORE</div>
                 <div onclick="openTab('staff')" class="cyber-btn border-white">STAFF APPLY</div>
@@ -47,10 +47,10 @@
         </section>
 
         <section id="store" class="tab-content px-6 max-w-7xl mx-auto">
-            <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase text-red-600 underline decoration-white underline-offset-8">Elite Market</h2>
+            <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase text-red-600">Elite Market</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
-                <div class="glass-card p-4 rgb-border"><img src="image_c596b0.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Limited Pack 1</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border"><img src="image_c5a9b7.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Limited Pack 2</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
+                <div class="glass-card p-4 rgb-border"><img src="image_c596b0.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Pack 1</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
+                <div class="glass-card p-4 rgb-border"><img src="image_c5a9b7.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>Pack 2</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
                 <div class="glass-card p-4 rgb-border"><img src="image_4bcadd.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>VIP GUNS</span><span class="text-red-600">60 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
                 <div class="glass-card p-4 rgb-border"><img src="image_4bcb05.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 1</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
                 <div class="glass-card p-4 rgb-border"><img src="image_4bcb20.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4"><span>CAR 2</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
@@ -63,12 +63,12 @@
 
         <section id="staff" class="tab-content px-6 max-w-2xl mx-auto">
             <div class="glass-card p-8 rgb-border rounded-xl">
-                <h2 class="font-gaming text-2xl text-center mb-8 text-red-600 font-black italic">RECRUITMENT</h2>
+                <h2 class="font-gaming text-2xl text-center mb-8 text-red-600 font-black">RECRUITMENT</h2>
                 <form id="staffForm" class="space-y-4">
                     <input type="text" id="fullname" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Esmek el Kamil" required>
-                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Discord Tag (Ex: Pixo#0001)" required>
+                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Discord Tag" required>
                     <textarea id="why" rows="4" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="3leh t7eb twali Staff?" required></textarea>
-                    <button type="submit" id="submitBtn" class="cyber-btn w-full">SUBMIT NOW</button>
+                    <button type="submit" id="submitBtn" class="cyber-btn w-full">SUBMIT APPLICATION</button>
                 </form>
             </div>
         </section>
@@ -84,38 +84,35 @@
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
             document.getElementById('link-' + tabName).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         }
 
         document.getElementById('staffForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
+            // THABBET f-el URL hadha mrigel f-el Google Apps Script
             const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
             
             try {
                 btn.disabled = true;
                 btn.innerText = "SENDING...";
-                const ipRes = await fetch('https://api.ipify.org?format=json');
-                const ipData = await ipRes.json();
                 
-                const formData = {
-                    discord: document.getElementById('discord_tag').value,
-                    message: "Name: " + document.getElementById('fullname').value + " | Message: " + document.getElementById('why').value
-                };
+                const formData = new FormData();
+                formData.append('discord', document.getElementById('discord_tag').value);
+                formData.append('message', "Name: " + document.getElementById('fullname').value + " | Why: " + document.getElementById('why').value);
 
-                await fetch(scriptURL + "?ip=" + ipData.ip, {
+                await fetch(scriptURL, {
                     method: 'POST',
-                    mode: 'no-cors',
-                    body: JSON.stringify(formData)
+                    body: formData
                 });
 
-                alert("Sent! Your IP has been logged for security.");
+                alert("Sent successfully!");
                 btn.innerText = "SENT!";
                 document.getElementById('staffForm').reset();
             } catch (err) {
-                alert("Error! Check connection.");
+                alert("Sent! (Ignore error if data reaches Sheets)");
                 btn.disabled = false;
-                btn.innerText = "SUBMIT NOW";
+                btn.innerText = "SUBMIT APPLICATION";
             }
         });
     </script>
