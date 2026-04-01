@@ -63,42 +63,57 @@
 </footer>
 
 <script>
+<script>
 async function sendApp() {
+    // 1. El link el jdid mte3 el Google Script (Security Proxy)
     const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
     const btn = document.getElementById('submitBtn');
 
+    // Thabbet elli el IDs mte3 el inputs f-el HTML mte3ek m-smiyin haka bedhabt:
+    const discordInput = document.getElementById('discord_tag');
+    const messageInput = document.getElementById('backstory_input');
+
+    if (!discordInput.value || !messageInput.value) {
+        alert("A3mmer el ma3loumat el kol!");
+        return;
+    }
+
     try {
         btn.disabled = true;
-        btn.innerText = "Checking IP...";
+        btn.innerText = "Checking Security...";
 
-        // 1. Get User IP
+        // 2. Fazet el IP Tracker (Bech n-ab3athouha l-Google Script)
         const ipRes = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipRes.json();
         const userIP = ipData.ip;
 
-        // 2. Prepare Data
-        const formData = {
-            discord: document.getElementById('discord_tag').value,
-            message: document.getElementById('backstory_input').value
-        };
-
-        // 3. Send to Google Proxy
-        btn.innerText = "Sending...";
+        // 3. Nab3ath l-el Google Script Proxy (Anti-Spam)
+        btn.innerText = "Sending to Pixo...";
+        
         await fetch(scriptURL + "?ip=" + userIP, {
             method: 'POST',
             mode: 'no-cors', 
-            body: JSON.stringify(formData)
+            body: JSON.stringify({
+                discord: discordInput.value,
+                message: messageInput.value
+            })
         });
 
-        alert("Application sent successfully!");
+        alert("Application sent successfully! Pixo System secured your IP.");
         btn.innerText = "SENT!";
         
+        // Clear inputs
+        discordInput.value = "";
+        messageInput.value = "";
+
     } catch (error) {
-        alert("Error! Try again.");
+        console.error(error);
+        alert("Famma error, 3awed jarreb!");
         btn.disabled = false;
-        btn.innerText = "SUBMIT APPLICATION";
+        btn.innerText = "SUBMIT";
     }
 }
+</script>
 </script>
 
 </body>
