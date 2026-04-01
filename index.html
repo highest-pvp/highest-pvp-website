@@ -7,71 +7,62 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --red: #ff0000; --glow: rgba(255, 0, 0, 0.6); }
+        :root { --red: #ff0000; }
         
-        /* --- NEW BACKGROUND CONFIG --- */
         body { 
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
                         url('https://i.postimg.cc/prrRzQwQ/back.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Background yo93ed thabet */
+            background-attachment: fixed;
             color: #fff; 
             font-family: 'Rajdhani', sans-serif; 
-            overflow-x: hidden;
             min-height: 100vh;
         }
 
         h1, h2, h3, .font-gaming { font-family: 'Orbitron', sans-serif; }
 
-        /* --- LOGO ANIMATION --- */
-        .floating-logo {
-            animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px var(--red));
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* --- NAVBAR --- */
-        nav { background: rgba(0, 0, 0, 0.9); border-bottom: 1px solid rgba(255, 0, 0, 0.2); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); }
+        /* Navigation */
+        nav { background: rgba(0, 0, 0, 0.9); border-bottom: 1px solid rgba(255, 0, 0, 0.2); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
         .nav-link { cursor: pointer; text-transform: uppercase; font-weight: bold; font-size: 13px; color: #aaa; transition: 0.3s; letter-spacing: 2px; }
         .nav-link:hover, .nav-link.active { color: var(--red); text-shadow: 0 0 10px var(--red); }
 
-        /* --- BUTTONS --- */
+        /* Buttons */
         .btn-highest { 
-            background: rgba(0, 0, 0, 0.6); border: 2px solid var(--red); color: #fff; 
+            background: rgba(0, 0, 0, 0.5); border: 2px solid var(--red); color: #fff; 
             padding: 12px 35px; font-weight: 900; text-transform: uppercase; 
-            cursor: pointer; transition: 0.4s; backdrop-filter: blur(5px);
+            cursor: pointer; transition: 0.4s;
         }
-        .btn-highest:hover { background: var(--red); color: #000; box-shadow: 0 0 30px var(--red); }
+        .btn-highest:hover { background: var(--red); color: #000; box-shadow: 0 0 25px var(--red); }
 
-        /* --- STORE --- */
-        .store-item { background: rgba(10, 10, 10, 0.8); border: 1px solid rgba(255, 0, 0, 0.2); padding: 15px; transition: 0.4s; backdrop-filter: blur(10px); }
-        .store-item:hover { border-color: var(--red); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255,0,0,0.2); }
-        .store-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 2px; }
-
-        /* --- FORMS --- */
-        .form-container { background: rgba(5, 5, 5, 0.9); border: 1px solid rgba(255, 0, 0, 0.3); padding: 40px; max-width: 850px; margin: 0 auto; backdrop-filter: blur(15px); }
-        input, textarea, select { background: rgba(0,0,0,0.7) !important; border: 1px solid #333 !important; color: #fff !important; width: 100%; padding: 14px; margin-bottom: 20px; outline: none; }
+        /* Staff Form - Raja3tha Simple */
+        .form-container { background: rgba(10, 10, 10, 0.85); border: 1px solid rgba(255, 0, 0, 0.3); padding: 40px; max-width: 700px; margin: 0 auto; backdrop-filter: blur(15px); }
+        input, textarea, select { 
+            background: rgba(20, 20, 20, 0.9) !important; border: 1px solid #444 !important; 
+            color: #fff !important; width: 100%; padding: 14px; margin-bottom: 20px; outline: none; 
+        }
         input:focus { border-color: var(--red) !important; }
+        label { color: var(--red); font-family: 'Orbitron'; font-size: 11px; text-transform: uppercase; margin-bottom: 8px; display: block; }
 
-        /* --- TABS --- */
+        /* Tabs */
         .tab-view { display: none; padding: 60px 20px; }
-        .tab-view.active { display: block; animation: fadeIn 0.6s ease; }
+        .tab-view.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* --- MODAL --- */
+        /* Store */
+        .store-item { background: rgba(10, 10, 10, 0.8); border: 1px solid rgba(255, 0, 0, 0.2); padding: 15px; text-align: center; backdrop-filter: blur(5px); }
+        .store-item img { width: 100%; height: 200px; object-fit: cover; }
+
+        /* Modal */
         #ipModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1001; align-items: center; justify-content: center; }
-        .modal-box { border: 2px solid var(--red); background: #000; padding: 50px; text-align: center; box-shadow: 0 0 50px var(--red); }
+        .modal-box { border: 2px solid var(--red); background: #000; padding: 50px; text-align: center; }
     </style>
 </head>
 <body>
 
     <div id="ipModal">
         <div class="modal-box">
-            <h2 class="font-gaming text-red-600 text-xl mb-6 uppercase">Server Connection</h2>
+            <h2 class="font-gaming text-red-600 text-xl mb-6 uppercase">Server Address</h2>
             <div id="serverAddr" class="bg-zinc-900 p-5 border border-red-900 font-mono text-3xl mb-4 cursor-pointer hover:bg-zinc-800" onclick="copyToClipboard()">nyc.velocityhost.tn</div>
             <p id="copyTag" class="text-green-500 font-bold mb-4 hidden uppercase text-xs">Copied!</p>
             <button onclick="closeIP()" class="btn-highest text-xs mt-4">Close</button>
@@ -80,7 +71,7 @@
 
     <nav>
         <div class="flex items-center gap-4 cursor-pointer" onclick="changeTab('home')">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-10 floating-logo">
+            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-10">
             <span class="font-gaming font-black italic text-xl uppercase">HIGHEST <span class="text-red-600">PVP</span></span>
         </div>
         <div class="flex gap-10">
@@ -92,9 +83,9 @@
 
     <main>
         <section id="home" class="tab-view active text-center py-32">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-10 floating-logo">
+            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-10 drop-shadow-[0_0_30px_red]">
             <h1 class="text-7xl md:text-9xl font-black italic mb-6 tracking-tighter uppercase">HIGHEST <span class="text-red-600">PVP</span></h1>
-            <p class="text-white font-bold tracking-[0.8em] uppercase mb-14 text-xs shadow-black">Tunisian Excellence</p>
+            <p class="text-white tracking-[0.8em] uppercase mb-14 text-xs font-bold">Tunisian Excellence</p>
             <div class="flex justify-center gap-6">
                 <button onclick="changeTab('store')" class="btn-highest px-16">Store</button>
                 <button onclick="changeTab('staff')" class="btn-highest px-16" style="border-color: #fff;">Apply</button>
@@ -102,40 +93,48 @@
         </section>
 
         <section id="store" class="tab-view max-w-7xl mx-auto">
-            <h2 class="font-gaming text-4xl text-center mb-16 italic text-red-600 uppercase">Vip Guns</h2>
+            <h2 class="font-gaming text-4xl text-center mb-16 italic text-red-600 uppercase">Vip Items</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-                <div class="store-item"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg"><p class="font-bold mt-4 text-center">ELITE GUN 01</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/PJCWvYJm/guns-2.jpg"><p class="font-bold mt-4 text-center">ELITE GUN 02</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/br4QxrSV/guns-4.jpg"><p class="font-bold mt-4 text-center">ELITE GUN 03</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/pyNF9SgM/guns-5.jpg"><p class="font-bold mt-4 text-center">ELITE GUN 04</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/kML1FgCG/guns-6.jpg"><p class="font-bold mt-4 text-center">ELITE GUN 05</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg"><p class="font-bold mt-4 text-center">ELITE GUN 06</p></div>
+                <div class="store-item"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg"><p class="font-bold mt-4">GUN 01</p></div>
+                <div class="store-item"><img src="https://i.postimg.cc/PJCWvYJm/guns-2.jpg"><p class="font-bold mt-4">GUN 02</p></div>
+                <div class="store-item"><img src="https://i.postimg.cc/br4QxrSV/guns-4.jpg"><p class="font-bold mt-4">GUN 03</p></div>
             </div>
-            
-            <h2 class="font-gaming text-4xl text-center mb-16 italic text-red-600 uppercase">Vip Cars</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
-                <div class="store-item"><img src="https://i.postimg.cc/rp9Q1Cjb/car1.jpg"><p class="font-bold mt-4 text-center">VIP CAR 01</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/t4NMkjCB/car-2.png"><p class="font-bold mt-4 text-center">VIP CAR 02</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/nVmTTJ3Q/car3.png"><p class="font-bold mt-4 text-center">VIP CAR 03</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/BQs5g18R/car4.png"><p class="font-bold mt-4 text-center">VIP CAR 04</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/8z77B1b0/car-5.jpg"><p class="font-bold mt-4 text-center">VIP CAR 05</p></div>
-                <div class="store-item"><img src="https://i.postimg.cc/2jTysqcK/car-6.jpg"><p class="font-bold mt-4 text-center">VIP CAR 06</p></div>
+                <div class="store-item"><img src="https://i.postimg.cc/rp9Q1Cjb/car1.jpg"><p class="font-bold mt-4">CAR 01</p></div>
+                <div class="store-item"><img src="https://i.postimg.cc/t4NMkjCB/car-2.png"><p class="font-bold mt-4">CAR 02</p></div>
+                <div class="store-item"><img src="https://i.postimg.cc/nVmTTJ3Q/car3.png"><p class="font-bold mt-4">CAR 03</p></div>
             </div>
         </section>
 
         <section id="staff" class="tab-view">
             <div class="form-container">
-                <h2 class="font-gaming text-3xl text-white mb-8 italic">STAFF APP</h2>
+                <h2 class="font-gaming text-3xl text-white mb-8 italic">Staff Application</h2>
                 <form id="applyForm">
-                    <label class="text-red-600 text-[10px] font-bold uppercase mb-2 block">Name</label>
+                    <label>Nom et Prénom</label>
                     <input type="text" id="fn" required>
+                    
                     <div class="grid grid-cols-2 gap-6">
-                        <div><label class="text-red-600 text-[10px] font-bold uppercase mb-2 block">Age</label><input type="number" id="age" required></div>
-                        <div><label class="text-red-600 text-[10px] font-bold uppercase mb-2 block">Discord</label><input type="text" id="dc" required></div>
+                        <div>
+                            <label>Age</label>
+                            <input type="number" id="age" required>
+                        </div>
+                        <div>
+                            <label>Discord Tag</label>
+                            <input type="text" id="dc" placeholder="User#0000" required>
+                        </div>
                     </div>
-                    <label class="text-red-600 text-[10px] font-bold uppercase mb-2 block">Why?</label>
+
+                    <label>Expérience</label>
+                    <select id="exp">
+                        <option>Aucune</option>
+                        <option>Intermédiaire</option>
+                        <option>Expert</option>
+                    </select>
+
+                    <label>Pourquoi vous choisir ?</label>
                     <textarea id="why" rows="4" required></textarea>
-                    <button type="submit" id="submitBtn" class="btn-highest w-full mt-6 py-4 font-black">SUBMIT</button>
+
+                    <button type="submit" id="submitBtn" class="btn-highest w-full mt-6 py-4 font-black uppercase">Send Application</button>
                 </form>
             </div>
         </section>
@@ -162,6 +161,36 @@
                 document.getElementById('copyTag').classList.remove('hidden');
             });
         }
+
+        const form = document.getElementById('applyForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "SENDING...";
+            
+            const payload = {
+                username: "HIGHEST RECRUITER",
+                embeds: [{
+                    title: "🚀 NEW STAFF APP",
+                    color: 16711680,
+                    fields: [
+                        {name: "👤 Nom", value: document.getElementById('fn').value},
+                        {name: "🔞 Age", value: document.getElementById('age').value},
+                        {name: "📱 Discord", value: document.getElementById('dc').value},
+                        {name: "🎓 Expérience", value: document.getElementById('exp').value},
+                        {name: "💡 Pourquoi", value: document.getElementById('why').value}
+                    ]
+                }]
+            };
+
+            fetch("https://discord.com/api/webhooks/1488578109530706153/vS_s9jU-eEI50Xl6rfcqrtjRPufrolrEV-oDRanABlQw9BUHmpb66QRbZtLT7j2V08Ul", 
+            { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload) })
+            .then(() => {
+                alert("Sent Successfully!");
+                btn.innerText = "SENT";
+                form.reset();
+            });
+        });
     </script>
 </body>
 </html>
