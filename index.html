@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGHEST PVP | OFFICIAL</title>
+    <title>HIGHEST PVP WEBSITE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -12,14 +12,14 @@
         h1, h2, h3, .font-gaming { font-family: 'Orbitron', sans-serif; }
         .rgb-border { border: 2px solid var(--rgb-red); box-shadow: 0 0 15px var(--rgb-glow); transition: 0.3s; }
         .glass-card { background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 0, 0, 0.2); }
-        .nav-link { cursor: pointer; transition: 0.3s; font-size: 14px; position: relative; }
+        .nav-link { cursor: pointer; transition: 0.3s; font-size: 14px; }
         .nav-link.active { color: #ff0000; text-shadow: 0 0 10px red; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-        .cyber-btn { position: relative; padding: 12px 35px; background: transparent; color: #fff; text-transform: uppercase; font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 2px; border: 2px solid #ff0000; clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%); transition: 0.4s; display: inline-block; text-align: center; cursor: pointer; }
-        .cyber-btn:hover { background: #ff0000; box-shadow: 0 0 30px #ff0000; color: black; }
-        .cyber-btn:disabled { background: #333; border-color: #555; color: #777; cursor: not-allowed; box-shadow: none; }
+        .tab-content { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .cyber-btn { position: relative; padding: 12px 35px; background: transparent; color: #fff; text-transform: uppercase; font-family: 'Orbitron', sans-serif; font-weight: 900; letter-spacing: 2px; border: 2px solid #ff0000; clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%); transition: 0.4s; overflow: hidden; display: inline-block; text-align: center; cursor: pointer; }
+        .cyber-btn:hover { background: #ff0000; box-shadow: 0 0 30px #ff0000; transform: translateY(-3px); color: black; }
+        input, textarea, select { background: rgba(0, 0, 0, 0.8) !important; border: 1px solid #333 !important; color: white !important; }
     </style>
 </head>
 <body>
@@ -27,57 +27,96 @@
     <nav class="flex justify-between items-center px-6 md:px-20 py-5 border-b border-zinc-900 sticky top-0 z-50 bg-black/95">
         <div class="flex items-center gap-4">
             <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-12 drop-shadow-[0_0_8px_red]">
-            <span class="font-gaming text-lg font-black uppercase tracking-tighter italic">HIGHEST <span class="text-red-600">PVP</span></span>
+            <span class="font-gaming text-lg font-black uppercase tracking-tighter">HIGHEST <span class="text-red-600">PVP WEBSITE</span></span>
         </div>
         <div class="flex gap-6 font-gaming uppercase font-bold tracking-widest text-xs">
-            <div onclick="openTab('home')" id="link-home" class="nav-link active">Home</div>
-            <div onclick="openTab('store')" id="link-store" class="nav-link">Store</div>
-            <div onclick="openTab('staff')" id="link-staff" class="nav-link text-red-600">Staff App</div>
+            <span onclick="openTab('home')" id="link-home" class="nav-link active">Home</span>
+            <span onclick="openTab('store')" id="link-store" class="nav-link">Store</span>
+            <span onclick="openTab('staff')" id="link-staff" class="nav-link">Staff App</span>
         </div>
     </nav>
 
     <main class="py-10">
-        <section id="home" class="tab-content active text-center py-16 px-4">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-8 animate-pulse drop-shadow-[0_0_40px_rgba(255,0,0,0.7)]">
+        <section id="home" class="tab-content active text-center py-16">
+            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-72 mx-auto mb-8 animate-pulse drop-shadow-[0_0_40px_rgba(255,0,0,0.7)]">
             <h1 class="text-6xl md:text-8xl font-black uppercase italic mb-2 tracking-tighter">HIGHEST <span class="text-red-600 underline">PVP</span></h1>
-            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-xs italic">Tunisian Elite Community</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <div onclick="openTab('store')" class="cyber-btn">OPEN STORE</div>
-                <div onclick="openTab('staff')" class="cyber-btn border-white">STAFF APPLY</div>
+            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-sm italic">The Apex of Tunisian PVP</p>
+            <div class="flex justify-center gap-4">
+                <button onclick="openTab('store')" class="cyber-btn">EL STORE</button>
             </div>
         </section>
 
         <section id="store" class="tab-content px-6 max-w-7xl mx-auto">
-            <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase text-red-600 underline underline-offset-8 decoration-white">Elite Market</h2>
+            <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase underline decoration-red-600 underline-offset-8">Elite Market</h2>
+            
+            <div class="mb-20">
+                <div class="glass-card p-6 rgb-border relative group overflow-hidden rounded-xl">
+                    <img src="image_4bcadd.jpg" class="w-full h-auto rounded-lg group-hover:scale-[1.01] transition duration-700">
+                    <div class="mt-8 flex justify-between items-center px-4">
+                        <h4 class="text-3xl font-black italic uppercase text-red-600">VIP GUNS BUNDLE</h4>
+                        <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
-                <div class="glass-card p-4 rgb-border group"><img src="image_c596b0.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>Pack 1</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_c5a9b7.png" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>Pack 2</span><span class="text-red-600">50 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_4bcadd.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>VIP GUNS</span><span class="text-red-600">60 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_4bcb05.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>CAR 1</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_4bcb20.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>CAR 2</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_4bcb7a.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>CAR 3</span><span class="text-red-600">30 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_4bcb97.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>CAR 4</span><span class="text-red-600">30 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_4bcb9d.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>CAR 5</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
-                <div class="glass-card p-4 rgb-border group"><img src="image_4bcbb6.jpg" class="w-full h-52 object-cover rounded mb-4"><div class="flex justify-between font-bold italic mb-4 uppercase"><span>CAR 6</span><span class="text-red-600">40 DT</span></div><a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a></div>
+                <div class="glass-card p-4 rgb-border group">
+                    <img src="image_4bcb05.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>BMW M4</span><span class="text-red-600">40 DT</span></div>
+                    <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
+                </div>
+                <div class="glass-card p-4 rgb-border group">
+                    <img src="image_4bcb20.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>SUV Widebody</span><span class="text-red-600">40 DT</span></div>
+                    <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
+                </div>
+                <div class="glass-card p-4 rgb-border group">
+                    <img src="image_4bcb7a.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Jeep Trackhawk</span><span class="text-red-600">30 DT</span></div>
+                    <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
+                </div>
+                <div class="glass-card p-4 rgb-border group">
+                    <img src="image_4bcb97.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>BMW X7 Widebody</span><span class="text-red-600">30 DT</span></div>
+                    <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
+                </div>
+                <div class="glass-card p-4 rgb-border group">
+                    <img src="image_4bcb9d.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Custom SUV</span><span class="text-red-600">40 DT</span></div>
+                    <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
+                </div>
+                <div class="glass-card p-4 rgb-border group">
+                    <img src="image_4bcbb6.jpg" class="w-full h-52 object-cover rounded mb-4">
+                    <div class="flex justify-between font-bold px-2 italic uppercase mb-4"><span>Custom Sedan</span><span class="text-red-600">40 DT</span></div>
+                    <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn w-full text-xs">Purchase</a>
+                </div>
             </div>
         </section>
 
-        <section id="staff" class="tab-content px-6 max-w-2xl mx-auto">
-            <div class="glass-card p-8 rgb-border rounded-xl">
-                <h2 class="font-gaming text-2xl text-center mb-8 text-red-600 font-black italic">STAFF APPLICATION</h2>
-                <form id="staffForm" class="space-y-4">
-                    <input type="text" id="fullname" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Nom et Prénom" required>
-                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Discord Tag (Ex: User#0000)" required>
-                    <textarea id="why" rows="4" class="w-full p-4 rounded bg-black border border-zinc-800 focus:border-red-600 outline-none" placeholder="Pourquoi vous voulez nous rejoindre?" required></textarea>
-                    <button type="submit" id="submitBtn" class="cyber-btn w-full">SUBMIT NOW</button>
-                    <p id="spamMsg" class="text-xs text-zinc-600 text-center hidden italic">Veuillez attendre 10 secondes avant de renvoyer.</p>
+        <section id="staff" class="tab-content px-6 max-w-3xl mx-auto">
+            <div class="glass-card p-10 rgb-border rounded-2xl">
+                <h2 class="font-gaming text-3xl text-center mb-10 text-red-600 italic font-black uppercase">RECRUITMENT</h2>
+                <form id="staffForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" id="fullname" class="p-4 rounded bg-black" placeholder="Esmek el kamil" required>
+                        <input type="number" id="age" class="p-4 rounded bg-black" placeholder="3omrek" required>
+                    </div>
+                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black" placeholder="Discord Tag" required>
+                    <textarea id="skills" rows="2" class="w-full p-4 rounded bg-black" placeholder="Chnowa el Skills mte3ek?"></textarea>
+                    <select id="experience" class="w-full p-4 rounded bg-black">
+                        <option value="La walla marra">Khdemt Staff 9bal? (La)</option>
+                        <option value="Ey, n3aref chwaya">Khdemt Staff 9bal? (Ey chwaya)</option>
+                        <option value="Khdemt barcha">Khdemt Staff 9bal? (Expert)</option>
+                    </select>
+                    <textarea id="why" rows="3" class="w-full p-4 rounded bg-black" placeholder="3leh t7eb twali Staff f Highest?" required></textarea>
+                    <button type="submit" class="cyber-btn w-full text-xl mt-4">Ab3eth el Application</button>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer class="py-10 text-center border-t border-zinc-900 text-zinc-600 text-[10px] tracking-[0.4em] uppercase">
-        © 2026 HIGHEST PVP | OFFICIAL SITE
+    <footer class="py-10 text-center border-t border-zinc-900 text-zinc-600 uppercase tracking-[0.3em] text-[10px]">
+        &copy; 2026 HIGHEST PVP WEBSITE | TUNISIA
     </footer>
 
     <script>
@@ -86,46 +125,7 @@
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
             document.getElementById('link-' + tabName).classList.add('active');
-            window.scrollTo(0,0);
         }
-
-        // STAFF FORM WITH ANTI-SPAM
-        document.getElementById('staffForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const spamMsg = document.getElementById('spamMsg');
-            const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
-            
-            try {
-                // Disable button (Anti-Spam)
-                btn.disabled = true;
-                btn.innerText = "SENDING...";
-                
-                const formData = new FormData();
-                formData.append('discord', document.getElementById('discord_tag').value);
-                formData.append('message', "Name: " + document.getElementById('fullname').value + " | Msg: " + document.getElementById('why').value);
-
-                // Send request
-                fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
-
-                alert("Successfully Sent!");
-                btn.innerText = "SENT!";
-                spamMsg.classList.remove('hidden');
-                document.getElementById('staffForm').reset();
-
-                // Wait 10 seconds before re-enabling
-                setTimeout(() => {
-                    btn.disabled = false;
-                    btn.innerText = "SUBMIT NOW";
-                    spamMsg.classList.add('hidden');
-                }, 10000);
-
-            } catch (err) {
-                alert("Error! Check connection.");
-                btn.disabled = false;
-                btn.innerText = "SUBMIT NOW";
-            }
-        });
     </script>
 </body>
 </html>
