@@ -3,117 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGHEST PVP | V2.1</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <title>HIGHEST PVP | V2.2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --rgb-red: #ff0000; --rgb-glow: rgba(255, 0, 0, 0.8); }
-        body { background: radial-gradient(circle at center, #1a0000 0%, #050505 100%); color: #fff; font-family: 'Rajdhani', sans-serif; min-height: 100vh; overflow-x: hidden; }
+        :root { --main-red: #ff0000; --glow: rgba(255, 0, 0, 0.7); }
+        body { background: #050505; color: #fff; font-family: 'Rajdhani', sans-serif; min-height: 100vh; }
         h1, h2, h3, .font-gaming { font-family: 'Orbitron', sans-serif; }
-        
-        .rgb-border { border: 2px solid var(--rgb-red); box-shadow: 0 0 15px var(--rgb-glow); transition: 0.3s; }
-        .glass-card { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 8px; }
-        
-        .nav-link { cursor: pointer; transition: 0.3s; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #777; }
-        .nav-link:hover { color: #fff; }
-        .nav-link.active { color: #ff0000; text-shadow: 0 0 10px red; }
-        
-        .tab-content { display: none; animation: fadeIn 0.4s ease-out; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .btn-custom { 
+        /* Style Jdid lel Buttons */
+        .btn-highest { 
             background: transparent; 
-            border: 2px solid #ff0000; 
+            border: 1px solid var(--main-red); 
             color: #fff; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
             padding: 10px 25px; 
-            transition: all 0.3s ease; 
+            text-transform: uppercase; 
+            font-weight: 900; 
+            letter-spacing: 2px; 
+            transition: 0.3s; 
             cursor: pointer;
-            display: inline-block;
+            box-shadow: inset 0 0 5px var(--glow);
         }
-        .btn-custom:hover { 
-            background: #ff0000; 
+        .btn-highest:hover { 
+            background: var(--main-red); 
+            box-shadow: 0 0 20px var(--main-red); 
             color: #000; 
-            box-shadow: 0 0 25px #ff0000; 
         }
 
-        .form-group { position: relative; margin-bottom: 20px; }
-        .form-group label { display: block; font-family: 'Orbitron'; font-size: 10px; color: #ff0000; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
-        input, textarea, select { background: #0a0a0a !important; border: 1px solid #222 !important; color: white !important; width: 100%; padding: 12px; border-radius: 0px; outline: none; transition: 0.3s; }
-        input:focus { border-color: #ff0000 !important; background: #110000 !important; }
+        .nav-link { cursor: pointer; font-family: 'Orbitron'; font-size: 12px; color: #666; transition: 0.3s; text-transform: uppercase; }
+        .nav-link:hover, .nav-link.active { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
 
-        #ipModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
-        .ip-frame { border: 2px solid #ff0000; padding: 40px; background: #000; text-align: center; max-width: 450px; width: 90%; box-shadow: inset 0 0 20px #ff0000, 0 0 40px #ff0000; }
+        .tab-content { display: none; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Store Cards */
+        .item-card { border: 1px solid #1a1a1a; background: #0a0a0a; transition: 0.3s; overflow: hidden; }
+        .item-card:hover { border-color: #ff0000; box-shadow: 0 0 15px rgba(255,0,0,0.2); }
+
+        /* IP Modal */
+        #ipModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; align-items: center; justify-content: center; }
+        .ip-box { border: 2px solid #ff0000; padding: 50px; background: #000; box-shadow: 0 0 50px #ff0000; text-align: center; }
     </style>
 </head>
 <body>
 
     <div id="ipModal">
-        <div class="ip-frame">
-            <h3 class="font-gaming text-red-600 text-xl mb-6 italic">SERVER CONNECTION</h3>
-            <div class="bg-zinc-900 p-4 border border-red-900/50 font-mono text-2xl mb-8 tracking-tighter">nyc.velocityhost.tn</div>
-            <button onclick="closeIP()" class="btn-custom text-xs">CLOSE INTERFACE</button>
+        <div class="ip-box">
+            <h2 class="font-gaming text-red-600 text-2xl mb-6 italic italic">SERVER IP</h2>
+            <div class="text-3xl font-mono mb-10 tracking-widest">nyc.velocityhost.tn</div>
+            <button onclick="closeIP()" class="btn-highest">CLOSE</button>
         </div>
     </div>
 
-    <nav class="flex justify-between items-center px-6 md:px-20 py-8 border-b border-zinc-900 bg-black sticky top-0 z-50">
-        <div class="flex items-center gap-4">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-10 drop-shadow-[0_0_5px_red]" onclick="openTab('home')" style="cursor:pointer">
-            <span class="font-gaming text-lg font-black italic uppercase tracking-tighter">HIGHEST <span class="text-red-600">PVP</span></span>
+    <nav class="flex justify-between items-center px-10 py-8 border-b border-zinc-900 bg-black">
+        <div class="flex items-center gap-3">
+            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-10 drop-shadow-[0_0_5px_red]">
+            <span class="font-gaming font-black italic">HIGHEST</span>
         </div>
-        <div class="flex gap-10">
+        <div class="flex gap-8">
             <span onclick="openTab('store')" id="link-store" class="nav-link">Store</span>
             <span onclick="openIP()" class="nav-link">IP Connect</span>
             <span onclick="openTab('staff')" id="link-staff" class="nav-link">Staff App</span>
         </div>
     </nav>
 
-    <main>
-        <section id="home" class="tab-content active text-center py-24 px-4">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-10 drop-shadow-[0_0_50px_rgba(255,0,0,0.4)]">
-            <h1 class="text-7xl md:text-9xl font-black italic mb-4 uppercase tracking-tighter">HIGHEST</h1>
-            <p class="text-red-600 font-gaming tracking-[1em] uppercase mb-16 text-sm">Tunisia's Best Performance</p>
-            <button onclick="openTab('store')" class="btn-custom px-16 py-5 text-xl">Enter Store</button>
+    <main class="py-10">
+        <section id="home" class="tab-content active text-center py-20">
+            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-60 mx-auto mb-10">
+            <h1 class="text-7xl font-black italic mb-16 uppercase">HIGHEST <span class="text-red-600">PVP</span></h1>
+            <button onclick="openTab('store')" class="btn-highest px-20 py-5 text-xl">ENTER STORE</button>
         </section>
 
-        <section id="store" class="tab-content px-6 max-w-7xl mx-auto py-16">
-            <h2 class="font-gaming text-5xl text-center mb-16 italic text-red-600 uppercase">Vip Guns</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-24">
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg" class="w-full h-60 object-cover mb-4"><p class="font-gaming text-center text-xs tracking-widest uppercase">VIP GUNS</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/PJCWvYJm/guns-2.jpg" class="w-full h-60 object-cover mb-4"><p class="font-gaming text-center text-xs tracking-widest uppercase">VIP GUNS</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/br4QxrSV/guns-4.jpg" class="w-full h-60 object-cover mb-4"><p class="font-gaming text-center text-xs tracking-widest uppercase">VIP GUNS</p></div>
+        <section id="store" class="tab-content px-6 max-w-6xl mx-auto">
+            <h2 class="font-gaming text-4xl text-center text-red-600 mb-12 uppercase italic">Vip Guns</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                <div class="item-card p-2"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg" class="w-full h-56 object-cover"><p class="py-4 text-center font-bold">VIP GUNS</p></div>
+                <div class="item-card p-2"><img src="https://i.postimg.cc/PJCWvYJm/guns-2.jpg" class="w-full h-56 object-cover"><p class="py-4 text-center font-bold">VIP GUNS</p></div>
+                <div class="item-card p-2"><img src="https://i.postimg.cc/br4QxrSV/guns-4.jpg" class="w-full h-56 object-cover"><p class="py-4 text-center font-bold">VIP GUNS</p></div>
             </div>
-
-            <h2 class="font-gaming text-5xl text-center mb-16 italic text-red-600 uppercase">Vip Cars</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-20">
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/rp9Q1Cjb/car1.jpg" class="w-full h-60 object-cover mb-4"><p class="font-gaming text-center text-xs tracking-widest uppercase">VIP CARS</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/t4NMkjCB/car-2.png" class="w-full h-60 object-cover mb-4"><p class="font-gaming text-center text-xs tracking-widest uppercase">VIP CARS</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/nVmTTJ3Q/car3.png" class="w-full h-60 object-cover mb-4"><p class="font-gaming text-center text-xs tracking-widest uppercase">VIP CARS</p></div>
+            <h2 class="font-gaming text-4xl text-center text-red-600 mb-12 uppercase italic">Vip Cars</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pb-20">
+                <div class="item-card p-2"><img src="https://i.postimg.cc/rp9Q1Cjb/car1.jpg" class="w-full h-56 object-cover"><p class="py-4 text-center font-bold">VIP CARS</p></div>
+                <div class="item-card p-2"><img src="https://i.postimg.cc/t4NMkjCB/car-2.png" class="w-full h-56 object-cover"><p class="py-4 text-center font-bold">VIP CARS</p></div>
+                <div class="item-card p-2"><img src="https://i.postimg.cc/nVmTTJ3Q/car3.png" class="w-full h-56 object-cover"><p class="py-4 text-center font-bold">VIP CARS</p></div>
             </div>
         </section>
 
-        <section id="staff" class="tab-content px-6 max-w-4xl mx-auto py-16">
-            <div class="border-l-4 border-red-600 pl-8 mb-12">
-                <h2 class="font-gaming text-5xl text-white font-black italic uppercase">Staff Application</h2>
+        <section id="staff" class="tab-content px-6 max-w-2xl mx-auto">
+            <div class="bg-black border border-red-900/30 p-10">
+                <h2 class="font-gaming text-3xl text-red-600 mb-8 italic uppercase">Staff Application</h2>
+                <form id="staffForm" class="space-y-6 text-sm">
+                    <div><label class="text-red-600 block mb-2 uppercase font-bold">Full Name</label><input type="text" id="fn" class="w-full bg-zinc-900 border border-zinc-800 p-3 outline-none focus:border-red-600" required></div>
+                    <div><label class="text-red-600 block mb-2 uppercase font-bold">Age</label><input type="number" id="age" class="w-full bg-zinc-900 border border-zinc-800 p-3 outline-none focus:border-red-600" required></div>
+                    <div><label class="text-red-600 block mb-2 uppercase font-bold">Discord Tag</label><input type="text" id="dc" class="w-full bg-zinc-900 border border-zinc-800 p-3 outline-none focus:border-red-600" required></div>
+                    <div><label class="text-red-600 block mb-2 uppercase font-bold">Why join us?</label><textarea id="why" rows="4" class="w-full bg-zinc-900 border border-zinc-800 p-3 outline-none focus:border-red-600" required></textarea></div>
+                    <button type="submit" id="sBtn" class="btn-highest w-full py-4">SUBMIT APPLICATION</button>
+                    <p id="cool" class="hidden text-red-500 text-center font-bold mt-4 uppercase">Locked for 24h</p>
+                </form>
             </div>
-            <form id="staffForm" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="form-group"><label>Full Name</label><input type="text" id="fn" required></div>
-                <div class="form-group"><label>Age</label><input type="number" id="age" required></div>
-                <div class="form-group md:col-span-2"><label>Discord Username</label><input type="text" id="dc" required></div>
-                <div class="form-group md:col-span-2">
-                    <label>Past Experience</label>
-                    <select id="exp"><option>No experience</option><option>Intermediate</option><option>Expert</option></select>
-                </div>
-                <div class="form-group md:col-span-2"><label>Why join us?</label><textarea id="why" rows="4" required></textarea></div>
-                <div class="form-group md:col-span-2"><label>What can you provide?</label><textarea id="off" rows="4" required></textarea></div>
-                <div class="md:col-span-2 pt-4">
-                    <button type="submit" id="sBtn" class="btn-custom w-full py-6 text-xl">Submit My Application</button>
-                    <p id="cool" class="text-center text-red-500 font-bold italic hidden pt-6 text-sm">COOLDOWN: 24H</p>
-                </div>
-            </form>
         </section>
     </main>
 
@@ -122,40 +111,42 @@
             document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(x => x.classList.remove('active'));
             document.getElementById(t).classList.add('active');
-            const link = document.getElementById('link-'+t);
-            if(link) link.classList.add('active');
-            window.scrollTo(0,0);
+            if(document.getElementById('link-'+t)) document.getElementById('link-'+t).classList.add('active');
         }
         function openIP() { document.getElementById('ipModal').style.display = 'flex'; }
         function closeIP() { document.getElementById('ipModal').style.display = 'none'; }
 
-        const form = document.getElementById('staffForm');
-        const btn = document.getElementById('sBtn');
-        form.addEventListener('submit', function(e) {
+        // Webhook
+        document.getElementById('staffForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const last = localStorage.getItem('last_sub_24');
+            const btn = document.getElementById('sBtn');
+            const last = localStorage.getItem('last_sub');
             const now = new Date().getTime();
-            if (last && (now - last < 86400000)) { document.getElementById('cool').classList.remove('hidden'); return; }
-            btn.disabled = true;
+
+            if (last && (now - last < 86400000)) {
+                document.getElementById('cool').classList.remove('hidden');
+                return;
+            }
+
             btn.innerText = "SENDING...";
             const payload = {
-                username: "HIGHEST",
+                username: "HIGHEST BOT",
                 embeds: [{
-                    title: "⚔️ NEW APPLICATION", color: 16711680,
+                    title: "NEW STAFF APP", color: 16711680,
                     fields: [
-                        {name: "👤 User", value: document.getElementById('fn').value},
-                        {name: "📱 Discord", value: document.getElementById('dc').value},
-                        {name: "❓ Why", value: document.getElementById('why').value}
-                    ],
-                    timestamp: new Date()
+                        {name: "Name", value: document.getElementById('fn').value},
+                        {name: "Discord", value: document.getElementById('dc').value},
+                        {name: "Why", value: document.getElementById('why').value}
+                    ]
                 }]
             };
+
             fetch("https://discord.com/api/webhooks/1488578109530706153/vS_s9jU-eEI50Xl6rfcqrtjRPufrolrEV-oDRanABlQw9BUHmpb66QRbZtLT7j2V08Ul", 
             { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload) })
             .then(() => {
                 alert("Sent!");
-                localStorage.setItem('last_sub_24', new Date().getTime());
-                btn.innerText = "SUBMITTED";
+                localStorage.setItem('last_sub', new Date().getTime());
+                btn.innerText = "SENT";
             });
         });
     </script>
