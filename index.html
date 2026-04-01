@@ -1,123 +1,56 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highest PVP - Application System</title>
-    <style>
-        body {
-            background-color: #0d0d0d;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: #1a1a1a;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-            width: 100%;
-            max-width: 450px;
-            border: 1px solid #ff0000;
-        }
-        h2 { text-align: center; color: #ff0000; text-transform: uppercase; letter-spacing: 2px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: #ccc; }
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-            border-radius: 5px;
-            background-color: #262626;
-            color: white;
-            box-sizing: border-box;
-        }
-        input:focus, textarea:focus { border-color: #ff0000; outline: none; }
-        button {
-            width: 100%;
-            padding: 15px;
-            background-color: #ff0000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        button:hover { background-color: #b30000; transform: scale(1.02); }
-        button:disabled { background-color: #555; cursor: not-allowed; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h2>Pixo System</h2>
-    
-    <label for="discord_tag">Discord Tag (Ex: Pixo#0001)</label>
-    <input type="text" id="discord_tag" placeholder="Your Discord Tag...">
-
-    <label for="backstory_input">Application / Backstory</label>
-    <textarea id="backstory_input" rows="6" placeholder="Write your story here..."></textarea>
-
-    <button id="submitBtn" onclick="sendApp()">SUBMIT APPLICATION</button>
-</div>
-
 <script>
 async function sendApp() {
-    const scriptURL = "https://script.google.com/macros/s/AKfycby8IGZRkunzGPKhXOxh3OJzyLFWKWdcUYXCwX5WfhZIDWZQKkxZfh0lcu5x8bkVME8/exec";
+    // El Link el jdid elli b3at-houli enti tawwa
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
     const btn = document.getElementById('submitBtn');
-    const discord = document.getElementById('discord_tag').value;
-    const message = document.getElementById('backstory_input').value;
 
-    if (!discord || !message) {
-        alert("Régel oumourek! A3mmer el inputs el kol.");
+    // Thabbet f-el IDs mte3 el inputs f-el HTML mte3ek!
+    const discordInput = document.getElementById('discord_tag');
+    const messageInput = document.getElementById('backstory_input');
+
+    if (!discordInput.value || !messageInput.value) {
+        alert("A3mmer el inputs el kol ya m3allem!");
         return;
     }
 
     try {
         btn.disabled = true;
-        btn.innerText = "Processing Security...";
+        btn.innerText = "Checking Security...";
 
-        // 1. Get User IP
+        // 1. Get User IP (Bech n-ab3athouha l-el Google Script)
         const ipRes = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipRes.json();
         const userIP = ipData.ip;
 
         // 2. Prepare Data
         const formData = {
-            discord: discord,
-            message: message
+            discord: discordInput.value,
+            message: messageInput.value
         };
 
         // 3. Send to Google Script Proxy
         btn.innerText = "Sending to Pixo...";
         
+        // Hna n-ab3athou el IP f-el URL (?ip=...) bech el Google Script ya3refha
         await fetch(scriptURL + "?ip=" + userIP, {
             method: 'POST',
             mode: 'no-cors', 
             body: JSON.stringify(formData)
         });
 
-        alert("Application sent successfully! Pixo will check it.");
+        // 💡 Note: Google Script b-no-cors dima i-raja3 success f-el browser
+        alert("Application sent! Pixo System will check your IP.");
         btn.innerText = "SENT SUCCESSFULLY";
         
-        // Reset Form
-        document.getElementById('discord_tag').value = "";
-        document.getElementById('backstory_input').value = "";
+        // Reset inputs
+        discordInput.value = "";
+        messageInput.value = "";
 
     } catch (error) {
-        console.error(error);
-        alert("Famma error f-el connection. Jarreb marra okhra.");
+        console.error("Error:", error);
+        alert("Famma mochkla f-el site, jarreb marra okhra.");
         btn.disabled = false;
         btn.innerText = "SUBMIT APPLICATION";
     }
 }
 </script>
-
-</body>
-</html>
