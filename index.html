@@ -41,21 +41,31 @@
             <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-72 mx-auto mb-8 animate-pulse drop-shadow-[0_0_40px_rgba(255,0,0,0.7)]">
             <h1 class="text-6xl md:text-8xl font-black uppercase italic mb-2 tracking-tighter">HIGHEST <span class="text-red-600 underline">PVP</span></h1>
             <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-sm italic">The Apex of Tunisian PVP</p>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
+            <div class="flex justify-center gap-4">
                 <button onclick="openTab('store')" class="cyber-btn">EL STORE</button>
-                <button onclick="openTab('staff')" class="cyber-btn">STAFF APPLICATION</button>
+                <button onclick="openTab('staff')" class="cyber-btn border-white">STAFF APPLY</button>
             </div>
         </section>
 
         <section id="store" class="tab-content px-6 max-w-7xl mx-auto">
             <h2 class="font-gaming text-4xl text-center mb-16 italic uppercase underline decoration-red-600 underline-offset-8">Elite Market</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                 <div class="glass-card p-2 rgb-border">
-                    <img src="image_c596b0.png" class="w-full rounded-lg" alt="Highest PVP Product 1">
+                    <img src="image_c596b0.png" class="w-full rounded-lg shadow-2xl shadow-red-900/20">
                 </div>
                 <div class="glass-card p-2 rgb-border">
-                    <img src="image_c5a9b7.png" class="w-full rounded-lg" alt="Highest PVP Product 2">
+                    <img src="image_c5a9b7.png" class="w-full rounded-lg shadow-2xl shadow-red-900/20">
+                </div>
+            </div>
+
+            <div class="mb-20">
+                <div class="glass-card p-6 rgb-border relative group overflow-hidden rounded-xl">
+                    <img src="image_4bcadd.jpg" class="w-full h-auto rounded-lg group-hover:scale-[1.01] transition duration-700">
+                    <div class="mt-8 flex justify-between items-center px-4">
+                        <h4 class="text-3xl font-black italic uppercase text-red-600">VIP GUNS BUNDLE</h4>
+                        <a href="https://discord.gg/NmQRM65YNd" target="_blank" class="cyber-btn">BUY NOW</a>
+                    </div>
                 </div>
             </div>
 
@@ -86,8 +96,8 @@
                         <input type="text" id="fullname" class="p-4 rounded bg-black" placeholder="Esmek el kamil" required>
                         <input type="number" id="age" class="p-4 rounded bg-black" placeholder="3omrek" required>
                     </div>
-                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black" placeholder="Discord Tag (Ex: Pixo#0001)" required>
-                    <textarea id="why" rows="4" class="w-full p-4 rounded bg-black" placeholder="3leh t7eb twali Staff f Highest?" required></textarea>
+                    <input type="text" id="discord_tag" class="w-full p-4 rounded bg-black" placeholder="Discord Tag" required>
+                    <textarea id="why" rows="3" class="w-full p-4 rounded bg-black" placeholder="3leh t7eb twali Staff f Highest?" required></textarea>
                     <button type="submit" id="submitBtn" class="cyber-btn w-full text-xl mt-4">Ab3eth el Application</button>
                 </form>
             </div>
@@ -104,7 +114,7 @@
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
             document.getElementById('link-' + tabName).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         }
 
         document.getElementById('staffForm').addEventListener('submit', async function(e) {
@@ -114,8 +124,7 @@
 
             try {
                 btn.disabled = true;
-                btn.innerText = "SECURITY CHECK...";
-
+                btn.innerText = "SENDING...";
                 const ipRes = await fetch('https://api.ipify.org?format=json');
                 const ipData = await ipRes.json();
                 
@@ -130,11 +139,11 @@
                     body: JSON.stringify(formData)
                 });
 
-                alert("Sent successfully! Your IP was logged for security.");
+                alert("Application sent successfully! IP logged.");
                 btn.innerText = "SENT!";
                 document.getElementById('staffForm').reset();
             } catch (err) {
-                alert("Error! Check connection.");
+                alert("Error! Try again.");
                 btn.disabled = false;
                 btn.innerText = "Ab3eth el Application";
             }
