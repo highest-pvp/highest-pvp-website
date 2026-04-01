@@ -1,56 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highest PVP - Official Store & Apply</title>
+    <style>
+        /* Design Global Pixo Style */
+        body { background-color: #0d0d0d; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        header { background: linear-gradient(to bottom, #ff0000, #800000); padding: 40px 20px; text-align: center; box-shadow: 0 5px 15px rgba(255,0,0,0.3); }
+        h1 { margin: 0; font-size: 3rem; text-transform: uppercase; letter-spacing: 5px; }
+        
+        .nav-bar { background: #1a1a1a; padding: 15px; text-align: center; border-bottom: 2px solid #ff0000; position: sticky; top: 0; z-index: 100; }
+        .nav-bar a { color: white; text-decoration: none; margin: 0 20px; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .nav-bar a:hover { color: #ff0000; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 20px; }
+        
+        /* Section Store */
+        .section-title { text-align: center; color: #ff0000; text-transform: uppercase; margin-bottom: 40px; font-size: 2rem; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #1a1a1a; border: 1px solid #333; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: #ff0000; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,0,0,0.1); }
+        .card h3 { color: #ff0000; }
+        .price { font-size: 1.5rem; font-weight: bold; margin: 15px 0; }
+        .btn-buy { background: #ff0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+
+        /* Section Application (Pixo System) */
+        .app-container { background: #111; border: 2px solid #ff0000; padding: 30px; border-radius: 15px; max-width: 600px; margin: 60px auto; }
+        label { display: block; margin: 15px 0 5px; color: #ccc; font-weight: bold; }
+        input, textarea { width: 100%; padding: 12px; background: #222; border: 1px solid #444; color: white; border-radius: 5px; box-sizing: border-box; }
+        input:focus, textarea:focus { border-color: #ff0000; outline: none; }
+        .btn-submit { background: #ff0000; color: white; border: none; padding: 15px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 1.1rem; }
+        .btn-submit:disabled { background: #555; }
+
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>HIGHEST PVP</h1>
+    <p>THE BEST TUNISIAN ROLEPLAY EXPERIENCE</p>
+</header>
+
+<div class="nav-bar">
+    <a href="#store">Store</a>
+    <a href="#staff">Staff Apply</a>
+    <a href="#pixo">User Apply (Pixo)</a>
+</div>
+
+<div class="container">
+    <h2 id="store" class="section-title">VIP & Items Store</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>VIP BRONZE</h3>
+            <p>Access to basic VIP cars & commands.</p>
+            <div class="price">10 TND / Month</div>
+            <button class="btn-buy" onclick="alert('Contact Staff on Discord to Buy!')">BUY NOW</button>
+        </div>
+        <div class="card">
+            <h3>VIP GOLD</h3>
+            <p>Custom House + Rare Cars + Priority Queue.</p>
+            <div class="price">25 TND / Month</div>
+            <button class="btn-buy" onclick="alert('Contact Staff on Discord to Buy!')">BUY NOW</button>
+        </div>
+        <div class="card">
+            <h3>UNBAN CARD</h3>
+            <p>One time unban for minor rules breaking.</p>
+            <div class="price">15 TND</div>
+            <button class="btn-buy" onclick="alert('Contact Staff on Discord to Buy!')">BUY NOW</button>
+        </div>
+    </div>
+
+    <h2 id="staff" class="section-title" style="margin-top: 80px;">Staff Recruitment</h2>
+    <div style="text-align: center; background: #1a1a1a; padding: 30px; border-radius: 10px;">
+        <p>We are looking for active moderators and support members.</p>
+        <button class="btn-buy" style="max-width: 300px;" onclick="window.location.href='#pixo'">Fill Staff Form Below</button>
+    </div>
+
+    <div id="pixo" class="app-container">
+        <h2 style="text-align: center; color: #ff0000; margin-top: 0;">PIXO SYSTEM - APPLICATION</h2>
+        <p style="text-align: center; color: #888;">Your IP will be logged for security purposes (24h Cooldown).</p>
+        
+        <label>Discord Tag (Ex: Pixo#0001)</label>
+        <input type="text" id="discord_tag" placeholder="Enter your Discord tag...">
+
+        <label>Why do you want to join Highest PVP?</label>
+        <textarea id="backstory_input" rows="6" placeholder="Tell us your story or staff experience..."></textarea>
+
+        <button id="submitBtn" class="btn-submit" onclick="sendApp()">SUBMIT APPLICATION</button>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 HIGHEST PVP | Powered by Pixo System Security
+</footer>
+
 <script>
 async function sendApp() {
-    // El Link el jdid elli b3at-houli enti tawwa
+    // El Link mte3 el Google Script el jdid
     const scriptURL = "https://script.google.com/macros/s/AKfycbxGue-J07EOUXghjiQoXTo23N2F9-BJLRfeEpEBCQ3vgCV-KpBMRHdTtvs8lT4AGzib/exec";
     const btn = document.getElementById('submitBtn');
+    const discord = document.getElementById('discord_tag').value;
+    const message = document.getElementById('backstory_input').value;
 
-    // Thabbet f-el IDs mte3 el inputs f-el HTML mte3ek!
-    const discordInput = document.getElementById('discord_tag');
-    const messageInput = document.getElementById('backstory_input');
-
-    if (!discordInput.value || !messageInput.value) {
+    if (!discord || !message) {
         alert("A3mmer el inputs el kol ya m3allem!");
         return;
     }
 
     try {
         btn.disabled = true;
-        btn.innerText = "Checking Security...";
+        btn.innerText = "Security Check...";
 
-        // 1. Get User IP (Bech n-ab3athouha l-el Google Script)
+        // 1. Get User IP
         const ipRes = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipRes.json();
         const userIP = ipData.ip;
 
         // 2. Prepare Data
         const formData = {
-            discord: discordInput.value,
-            message: messageInput.value
+            discord: discord,
+            message: message
         };
 
-        // 3. Send to Google Script Proxy
-        btn.innerText = "Sending to Pixo...";
+        // 3. Send to Google Script
+        btn.innerText = "Sending to Discord...";
         
-        // Hna n-ab3athou el IP f-el URL (?ip=...) bech el Google Script ya3refha
         await fetch(scriptURL + "?ip=" + userIP, {
             method: 'POST',
             mode: 'no-cors', 
             body: JSON.stringify(formData)
         });
 
-        // 💡 Note: Google Script b-no-cors dima i-raja3 success f-el browser
-        alert("Application sent! Pixo System will check your IP.");
+        alert("Application sent successfully! Wait for Staff response.");
         btn.innerText = "SENT SUCCESSFULLY";
         
-        // Reset inputs
-        discordInput.value = "";
-        messageInput.value = "";
+        // Reset
+        document.getElementById('discord_tag').value = "";
+        document.getElementById('backstory_input').value = "";
 
     } catch (error) {
-        console.error("Error:", error);
-        alert("Famma mochkla f-el site, jarreb marra okhra.");
+        console.error(error);
+        alert("Error! Check your connection.");
         btn.disabled = false;
         btn.innerText = "SUBMIT APPLICATION";
     }
 }
 </script>
+
+</body>
+</html>
