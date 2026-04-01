@@ -3,178 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGHEST PVP | OFFICIAL</title>
+    <title>HIGHEST PVP | V4-OFFICIAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --rgb-red: #ff0000; --rgb-glow: rgba(255, 0, 0, 0.8); }
-        body { background: radial-gradient(circle at center, #1a0000 0%, #050505 100%); color: #fff; font-family: 'Rajdhani', sans-serif; min-height: 100vh; overflow-x: hidden; }
+        :root { --red: #ff0000; --glow: rgba(255, 0, 0, 0.6); }
+        body { background: #050505; color: #fff; font-family: 'Rajdhani', sans-serif; margin: 0; }
         h1, h2, h3, .font-gaming { font-family: 'Orbitron', sans-serif; }
-        
-        .rgb-border { border: 2px solid var(--rgb-red); box-shadow: 0 0 15px var(--rgb-glow); transition: 0.3s; }
-        .glass-card { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 8px; }
-        
-        .nav-link { cursor: pointer; transition: 0.3s; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #777; }
-        .nav-link:hover, .nav-link.active { color: #ff0000; text-shadow: 0 0 10px red; }
-        
-        .tab-content { display: none; animation: fadeIn 0.4s ease-out; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .btn-custom { 
-            background: transparent; border: 2px solid var(--rgb-red); color: #fff; 
-            font-weight: 900; text-transform: uppercase; letter-spacing: 2px; 
-            padding: 12px 30px; transition: 0.3s; cursor: pointer;
+        /* Navigation */
+        nav { background: #000; border-bottom: 2px solid #111; padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .nav-link { cursor: pointer; text-transform: uppercase; font-weight: bold; font-size: 13px; color: #666; transition: 0.3s; letter-spacing: 2px; }
+        .nav-link:hover, .nav-link.active { color: var(--red); text-shadow: 0 0 10px var(--red); }
+
+        /* Buttons */
+        .btn-highest { 
+            background: transparent; border: 2px solid var(--red); color: #fff; 
+            padding: 12px 35px; font-weight: 900; text-transform: uppercase; 
+            cursor: pointer; transition: 0.4s; box-shadow: inset 0 0 0 0 var(--red);
         }
-        .btn-custom:hover { background: var(--rgb-red); color: #000; box-shadow: 0 0 25px var(--rgb-red); }
+        .btn-highest:hover { background: var(--red); color: #000; box-shadow: 0 0 30px var(--red); }
 
-        .form-group { position: relative; margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; font-family: 'Orbitron'; font-size: 10px; color: #ff0000; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
-        input, textarea, select { 
-            background: rgba(15, 15, 15, 0.9) !important; border: 1px solid #333 !important; 
-            color: white !important; width: 100%; padding: 12px; border-radius: 4px; outline: none; transition: 0.3s;
-        }
-        input:focus, textarea:focus { border-color: var(--rgb-red) !important; background: #000 !important; }
+        /* Content Sections */
+        .section-view { display: none; padding: 60px 20px; animation: fadeIn 0.5s ease; }
+        .section-view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        #ipModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
-        .ip-frame { border: 2px solid #ff0000; padding: 40px; background: #000; text-align: center; max-width: 450px; width: 90%; box-shadow: 0 0 40px var(--rgb-red); }
-        #copyStatus { display: none; color: #00ff00; font-size: 12px; margin-top: 10px; font-weight: bold; text-transform: uppercase; }
+        /* Store Cards */
+        .card-item { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 15px; transition: 0.3s; text-align: center; }
+        .card-item:hover { border-color: var(--red); transform: translateY(-5px); }
+        .card-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; }
+
+        /* Form Style */
+        .form-box { background: #080808; border-left: 4px solid var(--red); padding: 40px; max-width: 800px; margin: 0 auto; box-shadow: 0 10px 50px rgba(0,0,0,0.5); }
+        .input-style { background: #111 !important; border: 1px solid #222 !important; color: #fff !important; width: 100%; padding: 15px; margin-bottom: 20px; outline: none; }
+        .input-style:focus { border-color: var(--red) !important; }
+        label { color: var(--red); font-family: 'Orbitron'; font-size: 11px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+        /* IP Modal */
+        #ipModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1001; align-items: center; justify-content: center; }
+        .ip-content { border: 2px solid var(--red); background: #000; padding: 60px; text-align: center; box-shadow: 0 0 60px var(--red); }
     </style>
 </head>
 <body>
 
     <div id="ipModal">
-        <div class="ip-frame">
-            <h3 class="font-gaming text-red-600 text-lg mb-6 tracking-widest uppercase italic italic">Connection Interface</h3>
-            <div id="serverIP" class="bg-zinc-900 p-4 border border-red-900/50 font-mono text-3xl mb-4 tracking-tighter cursor-pointer" onclick="copyIP()">nyc.velocityhost.tn</div>
-            <p class="text-[10px] text-zinc-500 mb-6 uppercase tracking-widest">Click to copy address</p>
-            <div id="copyStatus">Copied Successfully!</div>
-            <button onclick="closeIP()" class="btn-custom text-xs mt-4">Close</button>
+        <div class="ip-content">
+            <h2 class="font-gaming text-red-600 text-2xl mb-6 italic">SERVER ADDRESS</h2>
+            <div id="targetIP" class="text-4xl font-mono mb-8 tracking-tighter cursor-pointer hover:text-red-500" onclick="copyAddress()">nyc.velocityhost.tn</div>
+            <p id="copyMsg" class="text-green-500 font-bold mb-6 hidden uppercase text-xs">Address Copied!</p>
+            <button onclick="closeIP()" class="btn-highest text-xs">Close</button>
         </div>
     </div>
 
-    <nav class="flex justify-between items-center px-6 md:px-20 py-8 border-b border-zinc-900 bg-black sticky top-0 z-50">
-        <div class="flex items-center gap-4 cursor-pointer" onclick="openTab('home')">
+    <nav>
+        <div class="flex items-center gap-4 cursor-pointer" onclick="showTab('home')">
             <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-10">
-            <span class="font-gaming text-lg font-black italic uppercase italic">HIGHEST <span class="text-red-600">PVP</span></span>
+            <span class="font-gaming font-black italic text-xl">HIGHEST <span class="text-red-600">PVP</span></span>
         </div>
-        <div class="flex gap-10 font-gaming">
-            <span onclick="openTab('store')" id="link-store" class="nav-link">Store</span>
+        <div class="flex gap-10">
+            <span onclick="showTab('store')" id="btn-store" class="nav-link">Store</span>
             <span onclick="openIP()" class="nav-link">IP Connect</span>
-            <span onclick="openTab('staff')" id="link-staff" class="nav-link">Staff App</span>
+            <span onclick="showTab('staff')" id="btn-staff" class="nav-link">Staff App</span>
         </div>
     </nav>
 
-    <main class="py-10">
-        <section id="home" class="tab-content active text-center py-20 px-4">
-            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-64 mx-auto mb-8 drop-shadow-[0_0_40px_rgba(255,0,0,0.6)]">
-            <h1 class="text-6xl md:text-8xl font-black italic mb-2 uppercase tracking-tighter">HIGHEST <span class="text-red-600">PVP</span></h1>
-            <p class="text-zinc-500 tracking-[0.5em] uppercase mb-12 text-xs italic">Tunisian Excellence</p>
+    <main>
+        <section id="home" class="section-view active text-center py-24">
+            <img src="https://i.postimg.cc/2yTMc72k/logo.png" class="w-60 mx-auto mb-10 drop-shadow-[0_0_40px_red]">
+            <h1 class="text-8xl font-black italic mb-12">HIGHEST <span class="text-red-600">PVP</span></h1>
             <div class="flex justify-center gap-6">
-                <button onclick="openTab('store')" class="btn-custom px-16">Explore Store</button>
-                <button onclick="openTab('staff')" class="btn-custom px-16" style="border-color: white;">Apply Now</button>
+                <button onclick="showTab('store')" class="btn-highest">Explore Store</button>
+                <button onclick="showTab('staff')" class="btn-highest" style="border-color: #fff;">Join Staff</button>
             </div>
         </section>
 
-        <section id="store" class="tab-content px-6 max-w-7xl mx-auto">
-            <h2 class="font-gaming text-4xl text-center mb-16 italic text-red-600 uppercase">Vip Guns Collection</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">ELITE WEAPON #1</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/PJCWvYJm/guns-2.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">ELITE WEAPON #2</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/br4QxrSV/guns-4.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">ELITE WEAPON #3</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/pyNF9SgM/guns-5.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">ELITE WEAPON #4</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/kML1FgCG/guns-6.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">ELITE WEAPON #5</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">ELITE WEAPON #6</p></div>
+        <section id="store" class="section-view max-w-7xl mx-auto">
+            <h2 class="font-gaming text-5xl text-red-600 text-center mb-16 italic uppercase">Vip Guns</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                <div class="card-item"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg"><p class="font-bold">MK2 ELITE</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/PJCWvYJm/guns-2.jpg"><p class="font-bold">SPECIAL CARBINE</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/br4QxrSV/guns-4.jpg"><p class="font-bold">HEAVY SNIPER</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/pyNF9SgM/guns-5.jpg"><p class="font-bold">COMBAT PDW</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/kML1FgCG/guns-6.jpg"><p class="font-bold">PUMP SHOTGUN</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/Y9qfkJwV/guns-1.jpg"><p class="font-bold">VIP PISTOL</p></div>
             </div>
-
-            <h2 class="font-gaming text-4xl text-center mb-16 italic text-red-600 uppercase">Vip Cars Collection</h2>
+            
+            <h2 class="font-gaming text-5xl text-red-600 text-center mb-16 italic uppercase">Vip Cars</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/rp9Q1Cjb/car1.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">VIP VEHICLE #1</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/t4NMkjCB/car-2.png" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">VIP VEHICLE #2</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/nVmTTJ3Q/car3.png" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">VIP VEHICLE #3</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/BQs5g18R/car4.png" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">VIP VEHICLE #4</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/8z77B1b0/car-5.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">VIP VEHICLE #5</p></div>
-                <div class="glass-card p-4 rgb-border"><img src="https://i.postimg.cc/2jTysqcK/car-6.jpg" class="w-full h-56 object-cover rounded mb-4"><p class="font-bold italic text-center">VIP VEHICLE #6</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/rp9Q1Cjb/car1.jpg"><p class="font-bold">SUPER SPORT #1</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/t4NMkjCB/car-2.png"><p class="font-bold">DRIFT KING</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/nVmTTJ3Q/car3.png"><p class="font-bold">LUXURY SUV</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/BQs5g18R/car4.png"><p class="font-bold">OFFROAD BEAST</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/8z77B1b0/car-5.jpg"><p class="font-bold">HYPERCAR X</p></div>
+                <div class="card-item"><img src="https://i.postimg.cc/2jTysqcK/car-6.jpg"><p class="font-bold">CONCEPT V2</p></div>
             </div>
         </section>
 
-        <section id="staff" class="tab-content px-6 max-w-2xl mx-auto">
-            <div class="glass-card p-10 border-t-2 border-red-600">
-                <h2 class="font-gaming text-3xl text-center mb-2 text-white font-black italic uppercase">Recruitment</h2>
-                <p class="text-zinc-500 text-center text-xs mb-10 tracking-widest uppercase">Staff Application Form</p>
+        <section id="staff" class="section-view">
+            <div class="form-box">
+                <h2 class="font-gaming text-3xl text-white mb-2 italic">STAFF APPLICATION</h2>
+                <p class="text-zinc-500 mb-10 text-xs uppercase tracking-widest">Apply for Management Positions</p>
                 
-                <form id="staffForm">
-                    <div class="form-group"><label>Full Name</label><input type="text" id="fn" placeholder="Nom et Prénom" required></div>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="form-group"><label>Age</label><input type="number" id="age" placeholder="16+" required></div>
-                        <div class="form-group"><label>Discord Tag</label><input type="text" id="dc" placeholder="User#0000" required></div>
-                    </div>
-                    <div class="form-group">
-                        <label>Expérience</label>
-                        <select id="exp">
-                            <option>Aucune Expérience</option>
-                            <option>Intermédiaire (Ancien Staff)</option>
-                            <option>Expert (Admin / Gérant)</option>
-                        </select>
-                    </div>
-                    <div class="form-group"><label>Pourquoi vous choisir ? (Motivation)</label><textarea id="why" rows="3" placeholder="Détaillez vos raisons..." required></textarea></div>
-                    <div class="form-group"><label>Qu'est-ce que vous allez apporter au serveur ?</label><textarea id="off" rows="3" placeholder="Vos compétences..." required></textarea></div>
+                <form id="mainForm">
+                    <label>Full Name (Nom et Prénom)</label>
+                    <input type="text" id="fn" class="input-style" placeholder="Ex: Ahmed Ben Ali" required>
                     
-                    <button type="submit" id="sBtn" class="btn-custom w-full py-5 text-xl font-black italic">SUBMIT APPLICATION</button>
-                    <p id="cool" class="text-center text-red-500 font-bold italic hidden pt-6 text-xs uppercase italic">Cooldown: Try again in 24 hours.</p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label>Age</label>
+                            <input type="number" id="age" class="input-style" placeholder="16+" required>
+                        </div>
+                        <div>
+                            <label>Discord Tag</label>
+                            <input type="text" id="dc" class="input-style" placeholder="user#0000" required>
+                        </div>
+                    </div>
+
+                    <label>Experience Level</label>
+                    <select id="exp" class="input-style">
+                        <option>Aucune expérience</option>
+                        <option>Intermédiaire (Ancien Staff)</option>
+                        <option>Expert (Admin/Manager)</option>
+                    </select>
+
+                    <label>Why do you want to join Highest PVP?</label>
+                    <textarea id="why" rows="3" class="input-style" placeholder="Vos motivations..." required></textarea>
+
+                    <label>What can you offer to the community?</label>
+                    <textarea id="off" rows="3" class="input-style" placeholder="Vos compétences..." required></textarea>
+
+                    <button type="submit" id="sBtn" class="btn-highest w-full mt-4">SUBMIT APPLICATION</button>
+                    <p id="cooldown" class="hidden text-red-500 text-center mt-6 font-bold uppercase text-xs tracking-widest">Cooldown: Locked for 24h</p>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer class="py-10 text-center border-t border-zinc-900 text-zinc-700 text-[10px] tracking-[0.4em] uppercase">
-        © 2026 HIGHEST PVP | MANAGEMENT SYSTEM
-    </footer>
-
     <script>
-        function openTab(t) {
-            document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
+        function showTab(t) {
+            document.querySelectorAll('.section-view').forEach(x => x.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(x => x.classList.remove('active'));
             document.getElementById(t).classList.add('active');
-            if(document.getElementById('link-'+t)) document.getElementById('link-'+t).classList.add('active');
+            if(document.getElementById('btn-'+t)) document.getElementById('btn-'+t).classList.add('active');
             window.scrollTo(0,0);
         }
 
         function openIP() { document.getElementById('ipModal').style.display = 'flex'; }
         function closeIP() { 
             document.getElementById('ipModal').style.display = 'none'; 
-            document.getElementById('copyStatus').style.display = 'none';
+            document.getElementById('copyMsg').classList.add('hidden');
         }
 
-        function copyIP() {
-            const ip = document.getElementById('serverIP').innerText;
+        function copyAddress() {
+            const ip = document.getElementById('targetIP').innerText;
             navigator.clipboard.writeText(ip).then(() => {
-                document.getElementById('copyStatus').style.display = 'block';
-                setTimeout(() => { document.getElementById('copyStatus').style.display = 'none'; }, 2000);
+                document.getElementById('copyMsg').classList.remove('hidden');
             });
         }
 
-        // Webhook Submission
-        const form = document.getElementById('staffForm');
+        // Webhook + Cooldown
+        const form = document.getElementById('mainForm');
         const btn = document.getElementById('sBtn');
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const last = localStorage.getItem('last_sub_24h');
+            const last = localStorage.getItem('highest_last_sub');
             const now = new Date().getTime();
 
             if (last && (now - last < 86400000)) {
-                document.getElementById('cool').classList.remove('hidden');
+                document.getElementById('cooldown').classList.remove('hidden');
                 return;
             }
 
-            btn.disabled = true;
             btn.innerText = "SENDING...";
+            btn.disabled = true;
 
             const payload = {
-                username: "HIGHEST BOT",
+                username: "HIGHEST SYSTEM",
                 embeds: [{
-                    title: "🚀 NEW STAFF APPLICATION", color: 16711680,
+                    title: "🚀 NEW STAFF APPLICATION",
+                    color: 16711680,
                     fields: [
                         {name: "👤 Name", value: document.getElementById('fn').value, inline: true},
                         {name: "🔞 Age", value: document.getElementById('age').value, inline: true},
@@ -190,8 +199,8 @@
             fetch("https://discord.com/api/webhooks/1488578109530706153/vS_s9jU-eEI50Xl6rfcqrtjRPufrolrEV-oDRanABlQw9BUHmpb66QRbZtLT7j2V08Ul", 
             { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload) })
             .then(() => {
-                alert("Application sent successfully!");
-                localStorage.setItem('last_sub_24h', new Date().getTime());
+                alert("Success! Sent to management.");
+                localStorage.setItem('highest_last_sub', new Date().getTime());
                 btn.innerText = "SENT";
                 form.reset();
             });
